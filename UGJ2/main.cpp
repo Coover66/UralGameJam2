@@ -4,11 +4,14 @@ class MySceen : public Screen
 {
 private:
 	Input* input;
+	Graphics* graphics;
 public:
 	void Start()
 	{
 		input = game->GetInput();
-		MessageBox(0,"Kek","KekMessage",MB_OK);
+		graphics = game->GetGraphics();
+		
+		//MessageBox(0,"Kek","KekMessage",MB_OK);
 	}
 	void Update()
 	{

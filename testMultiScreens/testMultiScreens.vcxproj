@@ -43,8 +43,8 @@
     <LibraryPath>C:\Users\Coover\Documents\Visual Studio 2012\Projects\UGJ2\SDL2-2.0.5\lib\x86;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IncludePath>C:\Users\Coover\Documents\Visual Studio 2012\Projects\UGJ2\SDL2-2.0.5\include;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\Users\Coover\Documents\Visual Studio 2012\Projects\UGJ2\SDL2-2.0.5\lib\x86;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(SolutionDir)SDL2-2.0.5\include;$(IncludePath)</IncludePath>
+    <LibraryPath>$(SolutionDir)SDL2-2.0.5\lib\x86;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>

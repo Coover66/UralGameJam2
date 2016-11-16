@@ -3,7 +3,8 @@
 
 Game::Game(void)
 {
-	run = true;
+	//run = true;
+	run = false;
 }
 
 
