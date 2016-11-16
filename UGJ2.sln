@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "UGJ2", "UGJ2\UGJ2.vcxproj", "{33E2FF30-DC6A-4DD4-88B9-3843B60AE4D6}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "testMultiScreens", "testMultiScreens\testMultiScreens.vcxproj", "{033C13FE-BE1B-49E4-B9A4-4776F6527F1E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{33E2FF30-DC6A-4DD4-88B9-3843B60AE4D6}.Debug|Win32.ActiveCfg = Debug|Win32
+		{33E2FF30-DC6A-4DD4-88B9-3843B60AE4D6}.Debug|Win32.Build.0 = Debug|Win32
+		{33E2FF30-DC6A-4DD4-88B9-3843B60AE4D6}.Release|Win32.ActiveCfg = Release|Win32
+		{33E2FF30-DC6A-4DD4-88B9-3843B60AE4D6}.Release|Win32.Build.0 = Release|Win32
+		{033C13FE-BE1B-49E4-B9A4-4776F6527F1E}.Debug|Win32.ActiveCfg = Debug|Win32
+		{033C13FE-BE1B-49E4-B9A4-4776F6527F1E}.Debug|Win32.Build.0 = Debug|Win32
+		{033C13FE-BE1B-49E4-B9A4-4776F6527F1E}.Release|Win32.ActiveCfg = Release|Win32
+		{033C13FE-BE1B-49E4-B9A4-4776F6527F1E}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
