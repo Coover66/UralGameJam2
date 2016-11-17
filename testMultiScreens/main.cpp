@@ -7,7 +7,7 @@ int main(int argc, char** argv)
 	SDL_Renderer* renderer;
 
 	
-	graphics g(640,480);
+	graphics g(640,640);
 	g.run();
 	g.~graphics();
 	/*

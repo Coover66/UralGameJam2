@@ -1,6 +1,6 @@
 #include "Project.h"
 #include <Windows.h>
-class MySceen : public Screen
+class MyScreen : public Screen
 {
 private:
 	Input* input;
@@ -37,5 +37,5 @@ int main(int argc, char** argv)
 	SDL_Quit();
 	*/
 	Game game;
-	return game.Execute(new MySceen(), 640,480);
+	return game.Execute(new MyScreen(), 640,480);
 }
