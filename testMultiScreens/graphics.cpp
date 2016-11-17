@@ -11,10 +11,13 @@ graphics::graphics(int width, int height)
 
 void graphics::run()
 {
+	bool menu = true;
+
 	bool out = false;
 	bool kek = false;
 	SDL_Texture* t1 = loadTexture("../Data/grass.bmp");
 	SDL_Texture* t2 = loadTexture("../Data/SNOW.BMP");
+	SDL_Texture* t3 = loadTexture("../Data/obshaga6.bmp");
 	SDL_SetTextureBlendMode (t2, SDL_BLENDMODE_ADD);
 	SDL_Rect r = {10,10,100,100};
 	SDL_Rect* r1;
@@ -26,40 +29,46 @@ void graphics::run()
 	SDL_RenderCopyEx(renderer, t2, NULL, &r, 0, NULL, SDL_FLIP_NONE);
 	while (!out)
 	{
-		
-		while(SDL_PollEvent(&evt)){
-			if( evt.type == SDL_QUIT ) out = true;
-            if( evt.type == SDL_KEYUP &&  evt.key.keysym.sym == SDLK_ESCAPE ) out = true;
-			if (evt.type == SDL_KEYDOWN && evt.key.keysym.sym == (Uint8)'w') { r.x += mX / kek1; r.y += mY / kek1; }
-			if (evt.type == SDL_KEYDOWN && evt.key.keysym.sym == (Uint8)'s') { r.x -= mX / kek1; r.y -= mY / kek1; }
-			if (evt.type == SDL_KEYDOWN && evt.key.keysym.sym == (Uint8)'a') r.x--;
-			if (evt.type == SDL_KEYDOWN && evt.key.keysym.sym == (Uint8)'d') r.x++;
-			if (evt.type == SDL_MOUSEMOTION) 
+
+		while (SDL_PollEvent(&evt)) {
+			if (evt.type == SDL_QUIT) out = true;
+			if (evt.type == SDL_KEYUP &&  evt.key.keysym.sym == SDLK_ESCAPE) out = true;
+			if (evt.type == SDL_KEYDOWN && evt.key.keysym.sym == (Uint8)'m') menu = !menu;
+			if (!menu)
 			{
-				mX = evt.motion.x-r.x-r.h/2; 
-				mY = evt.motion.y-r.y-r.w/2; 
-				
-				if (mY != 0 && mY != 0)
+				if (evt.type == SDL_KEYDOWN && evt.key.keysym.sym == (Uint8)'w') { r.x += mX / kek1; r.y += mY / kek1; }
+				if (evt.type == SDL_KEYDOWN && evt.key.keysym.sym == (Uint8)'s') { r.x -= mX / kek1; r.y -= mY / kek1; }
+				if (evt.type == SDL_KEYDOWN && evt.key.keysym.sym == (Uint8)'a') r.x--;
+				if (evt.type == SDL_KEYDOWN && evt.key.keysym.sym == (Uint8)'d') r.x++;
+				if (evt.type == SDL_MOUSEMOTION)
 				{
-					kek1 = sqrt((double)abs(mX*mX + mY*mY)) / 10;
-					angle = atan2(mX, mY) / M_PI * 180;
+					mX = evt.motion.x - r.x - r.h / 2;
+					mY = evt.motion.y - r.y - r.w / 2;
+
+					if (mY != 0 && mY != 0)
+					{
+						kek1 = sqrt((double)abs(mX*mX + mY*mY)) / 10;
+						angle = atan2(mX, mY) / M_PI * 180;
+					}
+					std::cout << mX << " " << mY << " " << angle << std::endl;
 				}
-				//else 
-				//	angle = 0;
-				std::cout << mX << " " << mY << " " << angle << std::endl; 
 			}
-			//if (evt.type == SDL_MOUSEMOTION) { std::cout << (Uint32)evt.motion.x << " "; std::cout << (Uint32)evt.motion.y << std::endl;}
-			//TODO mouse x,y
+
 		}
 
 
-		
-		
+
+
 		SDL_RenderClear(renderer);
-		//if (kek)		
-			SDL_RenderCopy(renderer, t1 ,NULL,NULL);
-		//else
-			SDL_RenderCopyEx(renderer, t2 ,NULL,&r,-angle,NULL,SDL_FLIP_NONE);
+
+		if (!menu)
+		{
+			SDL_RenderCopy(renderer, t1, NULL, NULL);//background
+			SDL_RenderCopyEx(renderer, t2, NULL, &r, -angle, NULL, SDL_FLIP_NONE);//player
+		}
+		else 
+			SDL_RenderCopy(renderer, t3, NULL, NULL);
+
 
 		SDL_RenderPresent(renderer);
 
