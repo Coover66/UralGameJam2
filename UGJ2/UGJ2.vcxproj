@@ -80,6 +80,7 @@
     <ClCompile Include="Engine\Image.cpp" />
     <ClCompile Include="Engine\Input.cpp" />
     <ClCompile Include="Engine\Screen.cpp" />
+    <ClCompile Include="Logic\Character.cpp" />
     <ClCompile Include="Logic\GameProcessScreen.cpp" />
     <ClCompile Include="Logic\MainMenuScreen.cpp" />
     <ClCompile Include="main.cpp" />
@@ -91,6 +92,7 @@
     <ClInclude Include="Engine\Input.h" />
     <ClInclude Include="Engine\Project.h" />
     <ClInclude Include="Engine\Screen.h" />
+    <ClInclude Include="Logic\Character.h" />
     <ClInclude Include="Logic\GameProcessScreen.h" />
     <ClInclude Include="Logic\MainMenuScreen.h" />
   </ItemGroup>

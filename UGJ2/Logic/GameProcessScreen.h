@@ -9,6 +9,7 @@ private:
 	Input* input;
 	Graphics* graphics;
 	SDL_Renderer* renderer;
+	Character* player;
 	SDL_Texture* t1;
 	SDL_Texture* t2;
 	SDL_Rect r;

@@ -20,13 +20,14 @@ void GameProcessScreen::Start()
 	SDL_SetTextureBlendMode(t2, SDL_BLENDMODE_ADD);
 	r = { 10,10,100,100 };
 	
-	
+	player = new Character(55, 55, t2, 0);
 
 }
 
 void GameProcessScreen::Update()
 {
 	while (SDL_PollEvent(&input->evt)) {
+
 		if (input->IsKeyDown(SDLK_ESCAPE) || input->IsExit())
 			game->Exit();
 		SDL_RenderClear(renderer);
@@ -45,12 +46,12 @@ void GameProcessScreen::Update()
 		{
 			mX = input->evt.motion.x - r.x - r.h / 2;
 			mY = input->evt.motion.y - r.y - r.w / 2;
-
+			
 			if (mY != 0 && mY != 0)
 			{
 				kek1 = sqrt((double)abs(mX*mX + mY*mY)) / 10;
 				angle = atan2(mX, mY) / M_PI * 180;
-			}
+			}//нет else, т.е. может упасть, если долго не будет изменений
 			std::cout << mX << " " << mY << " " << angle << std::endl;
 		}
 		//------------------------------
