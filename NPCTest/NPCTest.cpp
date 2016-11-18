@@ -17,8 +17,8 @@ bool test() {
 	Point p(0, 0);
 	NPC npc(0, 0, input);
 	npc.setPole(input);
-	npc.position = { 2, 3 };
-	Point target(4, 2);
+	npc.position = { 3, 2 };
+	Point target(2, 4);
 	auto patch = npc.findPath(target);
 	return true;
 }

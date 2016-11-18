@@ -7,20 +7,20 @@ const int *Point::dy = dy_data;
 
 bool Point::isValid(const VecVecBool & pole) const
 {
-	if (x < 0 || x >= pole.size())  return false;
-	if (y < 0 || y >= pole[x].size()) return false;
-	return  pole[x][y];
+	if (y < 0 || y >= pole.size())  return false;
+	if (x < 0 || x >= pole[y].size()) return false;
+	return  pole[y][x];
 }
 
 Point Point::getBestNeighbor(const VecVecBool & inputPole, const VecVecInt & input) const
 {
-	auto len = input[x][y];
+	auto len = input[y][x];
 	for (int i = 0; i < 8; ++i)                    // проходим по всем непомеченным соседям
 	{
 		Point nextPoint(x + dx[i], y + dy[i]);
 		if (!nextPoint.isValid(inputPole))
 			continue;
-		int nextLen = input[nextPoint.x][nextPoint.y];
+		int nextLen = input[nextPoint.y][nextPoint.x];
 		if (nextLen != -1 && nextLen < len)
 			return nextPoint;
 	}

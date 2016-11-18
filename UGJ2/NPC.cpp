@@ -5,7 +5,7 @@ NPC::NPC(int x, int y, VecVecBool & map):position(x, y), pole(map)
 {
 }
 
-std::stack<Point> & NPC::findPath(const Point & finish) const
+std::stack<Point> NPC::findPath(const Point & finish) const
 {
 	VecVecInt poleInt(pole.size(), std::vector<int>(pole[0].size(), -1));
 	std::deque<Point> deque;
