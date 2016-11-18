@@ -10,7 +10,7 @@ std::stack<Point> & NPC::findPath(const Point & finish) const
 	VecVecInt poleInt(pole.size(), std::vector<int>(pole[0].size(), -1));
 	std::deque<Point> deque;
 	deque.push_back(position);
-	poleInt[position.x][position.y] = 0;
+	poleInt[position.y][position.x] = 0;
 	do
 	{
 		Point currentPoint = deque.front();
@@ -23,16 +23,16 @@ std::stack<Point> & NPC::findPath(const Point & finish) const
 			if (!nextPoint.isValid(pole))
 				continue;
 			
-			uint nextLen = poleInt[nextPoint.x][nextPoint.y];
-			uint currentLen = poleInt[currentPoint.x][currentPoint.y];
+			uint nextLen = poleInt[nextPoint.y][nextPoint.x];
+			uint currentLen = poleInt[currentPoint.y][currentPoint.x];
 			if (nextLen > currentLen + 1 || nextLen == -1)
 			{
-				poleInt[nextPoint.x][nextPoint.y] = currentLen + 1;
+				poleInt[nextPoint.y][nextPoint.x] = currentLen + 1;
 				deque.push_back(nextPoint);
 			}
 		}
-	} while (!deque.empty() && poleInt[finish.x][finish.y] == -1);
-	if (pole[finish.x][finish.y] == 0)
+	} while (!deque.empty() && poleInt[finish.y][finish.x] == -1);
+	if (pole[finish.y][finish.x] == 0)
 		return std::stack<Point>();
 	std::stack<Point> result;
 	Point currentPoint = finish;
