@@ -1,5 +1,5 @@
 #pragma once
-#include "Project.h"
+#include "../Project.h"
 #include <iostream>
 
 #include "Image.h"

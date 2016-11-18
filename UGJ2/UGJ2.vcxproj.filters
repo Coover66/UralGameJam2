@@ -74,9 +74,6 @@
     <ClInclude Include="Engine\Input.h">
       <Filter>Заголовочные файлы\Engine</Filter>
     </ClInclude>
-    <ClInclude Include="Engine\Project.h">
-      <Filter>Заголовочные файлы\Engine</Filter>
-    </ClInclude>
     <ClInclude Include="Engine\Screen.h">
       <Filter>Заголовочные файлы\Engine</Filter>
     </ClInclude>
@@ -94,6 +91,9 @@
     </ClInclude>
     <ClInclude Include="Logic\Point.h">
       <Filter>Заголовочные файлы\Logic</Filter>
+    </ClInclude>
+    <ClInclude Include="Project.h">
+      <Filter>Заголовочные файлы</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

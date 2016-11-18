@@ -1,5 +1,5 @@
 #pragma once
-#include "Project.h"
+#include "../Project.h"
 class Image
 {
 private:

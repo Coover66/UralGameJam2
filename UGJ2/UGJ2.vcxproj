@@ -92,13 +92,13 @@
     <ClInclude Include="Engine\Graphics.h" />
     <ClInclude Include="Engine\Image.h" />
     <ClInclude Include="Engine\Input.h" />
-    <ClInclude Include="Engine\Project.h" />
     <ClInclude Include="Engine\Screen.h" />
     <ClInclude Include="Logic\Character.h" />
     <ClInclude Include="Logic\GameProcessScreen.h" />
     <ClInclude Include="Logic\MainMenuScreen.h" />
     <ClInclude Include="Logic\NPC.h" />
     <ClInclude Include="Logic\Point.h" />
+    <ClInclude Include="Project.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="..\Data\grass.bmp" />
