@@ -82,6 +82,8 @@
     <ClCompile Include="Engine\Screen.cpp" />
     <ClCompile Include="Logic\GameProcessScreen.cpp" />
     <ClCompile Include="Logic\MainMenuScreen.cpp" />
+    <ClCompile Include="NPC.cpp" />
+    <ClCompile Include="Point.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -93,6 +95,8 @@
     <ClInclude Include="Engine\Screen.h" />
     <ClInclude Include="Logic\GameProcessScreen.h" />
     <ClInclude Include="Logic\MainMenuScreen.h" />
+    <ClInclude Include="NPC.h" />
+    <ClInclude Include="Point.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
