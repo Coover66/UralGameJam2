@@ -1,5 +1,4 @@
-﻿
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <Filter Include="Файлы исходного кода">
@@ -14,77 +13,98 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Файлы исходного кода\Engine">
+      <UniqueIdentifier>{3070b4bd-623a-473e-997c-0c62e752f6cf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы исходного кода\Logic">
+      <UniqueIdentifier>{2b3266c4-2ca4-4bf2-aa60-5784ca2d371f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Заголовочные файлы\Engine">
+      <UniqueIdentifier>{840e9d22-0f4a-4336-88aa-f17522afab57}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Заголовочные файлы\Logic">
+      <UniqueIdentifier>{a47d9a8f-f682-41c8-93f6-6dff226cfdf5}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
       <Filter>Файлы исходного кода</Filter>
     </ClCompile>
     <ClCompile Include="Engine\Game.cpp">
-      <Filter>Файлы исходного кода</Filter>
+      <Filter>Файлы исходного кода\Engine</Filter>
     </ClCompile>
     <ClCompile Include="Engine\Graphics.cpp">
-      <Filter>Файлы исходного кода</Filter>
+      <Filter>Файлы исходного кода\Engine</Filter>
     </ClCompile>
     <ClCompile Include="Engine\Image.cpp">
-      <Filter>Файлы исходного кода</Filter>
+      <Filter>Файлы исходного кода\Engine</Filter>
     </ClCompile>
     <ClCompile Include="Engine\Input.cpp">
-      <Filter>Файлы исходного кода</Filter>
+      <Filter>Файлы исходного кода\Engine</Filter>
     </ClCompile>
     <ClCompile Include="Engine\Screen.cpp">
-      <Filter>Файлы исходного кода</Filter>
+      <Filter>Файлы исходного кода\Engine</Filter>
     </ClCompile>
-    <ClCompile Include="Logic\MainMenuScreen.cpp">
-      <Filter>Файлы исходного кода</Filter>
+    <ClCompile Include="Logic\Character.cpp">
+      <Filter>Файлы исходного кода\Logic</Filter>
     </ClCompile>
     <ClCompile Include="Logic\GameProcessScreen.cpp">
-      <Filter>Файлы исходного кода</Filter>
+      <Filter>Файлы исходного кода\Logic</Filter>
     </ClCompile>
-    <ClCompile Include="NPC.cpp">
-      <Filter>Файлы исходного кода</Filter>
+    <ClCompile Include="Logic\MainMenuScreen.cpp">
+      <Filter>Файлы исходного кода\Logic</Filter>
     </ClCompile>
-    <ClCompile Include="Point.cpp">
-      <Filter>Файлы исходного кода</Filter>
+    <ClCompile Include="Logic\NPC.cpp">
+      <Filter>Файлы исходного кода\Logic</Filter>
     </ClCompile>
-	<ClCompile Include="Logic\Character.cpp">
-      <Filter>Файлы исходного кода</Filter>
+    <ClCompile Include="Logic\Point.cpp">
+      <Filter>Файлы исходного кода\Logic</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Engine\Game.h">
-      <Filter>Заголовочные файлы</Filter>
+      <Filter>Заголовочные файлы\Engine</Filter>
     </ClInclude>
     <ClInclude Include="Engine\Graphics.h">
-      <Filter>Заголовочные файлы</Filter>
+      <Filter>Заголовочные файлы\Engine</Filter>
     </ClInclude>
     <ClInclude Include="Engine\Image.h">
-      <Filter>Заголовочные файлы</Filter>
+      <Filter>Заголовочные файлы\Engine</Filter>
     </ClInclude>
     <ClInclude Include="Engine\Input.h">
-      <Filter>Заголовочные файлы</Filter>
+      <Filter>Заголовочные файлы\Engine</Filter>
     </ClInclude>
     <ClInclude Include="Engine\Project.h">
-      <Filter>Заголовочные файлы</Filter>
+      <Filter>Заголовочные файлы\Engine</Filter>
     </ClInclude>
     <ClInclude Include="Engine\Screen.h">
-      <Filter>Заголовочные файлы</Filter>
-    </ClInclude>
-    <ClInclude Include="Logic\MainMenuScreen.h">
-      <Filter>Заголовочные файлы</Filter>
-    </ClInclude>
-    <ClInclude Include="Logic\GameProcessScreen.h">
-      <Filter>Заголовочные файлы</Filter>
-    </ClInclude>
-    <ClInclude Include="NPC.h">
-      <Filter>Заголовочные файлы</Filter>
-    </ClInclude>
-    <ClInclude Include="Point.h">
-      <Filter>Заголовочные файлы</Filter>
+      <Filter>Заголовочные файлы\Engine</Filter>
     </ClInclude>
     <ClInclude Include="Logic\Character.h">
-      <Filter>Заголовочные файлы</Filter>
+      <Filter>Заголовочные файлы\Logic</Filter>
+    </ClInclude>
+    <ClInclude Include="Logic\GameProcessScreen.h">
+      <Filter>Заголовочные файлы\Logic</Filter>
+    </ClInclude>
+    <ClInclude Include="Logic\MainMenuScreen.h">
+      <Filter>Заголовочные файлы\Logic</Filter>
+    </ClInclude>
+    <ClInclude Include="Logic\NPC.h">
+      <Filter>Заголовочные файлы\Logic</Filter>
+    </ClInclude>
+    <ClInclude Include="Logic\Point.h">
+      <Filter>Заголовочные файлы\Logic</Filter>
     </ClInclude>
   </ItemGroup>
-
-
+  <ItemGroup>
+    <Image Include="..\Data\grass.bmp">
+      <Filter>Файлы ресурсов</Filter>
+    </Image>
+    <Image Include="..\Data\obshaga6.bmp">
+      <Filter>Файлы ресурсов</Filter>
+    </Image>
+    <Image Include="..\Data\SNOW.BMP">
+      <Filter>Файлы ресурсов</Filter>
+    </Image>
+  </ItemGroup>
 </Project>

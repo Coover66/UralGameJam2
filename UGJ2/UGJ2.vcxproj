@@ -83,8 +83,8 @@
     <ClCompile Include="Logic\Character.cpp" />
     <ClCompile Include="Logic\GameProcessScreen.cpp" />
     <ClCompile Include="Logic\MainMenuScreen.cpp" />
-    <ClCompile Include="NPC.cpp" />
-    <ClCompile Include="Point.cpp" />
+    <ClCompile Include="Logic\NPC.cpp" />
+    <ClCompile Include="Logic\Point.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -97,8 +97,13 @@
     <ClInclude Include="Logic\Character.h" />
     <ClInclude Include="Logic\GameProcessScreen.h" />
     <ClInclude Include="Logic\MainMenuScreen.h" />
-    <ClInclude Include="NPC.h" />
-    <ClInclude Include="Point.h" />
+    <ClInclude Include="Logic\NPC.h" />
+    <ClInclude Include="Logic\Point.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="..\Data\grass.bmp" />
+    <Image Include="..\Data\obshaga6.bmp" />
+    <Image Include="..\Data\SNOW.BMP" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
