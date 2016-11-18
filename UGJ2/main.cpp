@@ -1,22 +1,34 @@
-#include "Engine/Project.h"
 #include <Windows.h>
+#include "Engine/Project.h"
+#include "Logic\MainMenuScreen.h"
+#include "Logic\GameProcessScreen.h"
+
 class MyScreen : public Screen
 {
 private:
 	Input* input;
 	Graphics* graphics;
+	SDL_Renderer* renderer;
+
+	SDL_Texture* t1;
 public:
 	void Start()
 	{
 		input = game->GetInput();
 		graphics = game->GetGraphics();
-		
+		renderer = graphics->gatRenderer();
+		t1 = graphics->loadTexture("../Data/obshaga6.bmp");
 		//MessageBox(0,"Kek","KekMessage",MB_OK);
 	}
 	void Update()
 	{
-		if(input->IsKeyDown('w') || input->IsExit())
+		
+		if(input->IsKeyDown(SDLK_ESCAPE) || input->IsExit())
 			game->Exit();
+
+		SDL_RenderCopy( renderer, t1, NULL, NULL);
+
+		graphics->Flip();
 	}
 };
 
@@ -37,5 +49,5 @@ int main(int argc, char** argv)
 	SDL_Quit();
 	*/
 	Game game;
-	return game.Execute(new MyScreen(), 640,480);
+	return game.Execute(new MainMenuScreen(), 640,480);
 }

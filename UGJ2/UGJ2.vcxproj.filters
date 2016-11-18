@@ -33,6 +33,12 @@
     <ClCompile Include="Engine\Screen.cpp">
       <Filter>Файлы исходного кода</Filter>
     </ClCompile>
+    <ClCompile Include="Logic\MainMenuScreen.cpp">
+      <Filter>Файлы исходного кода</Filter>
+    </ClCompile>
+    <ClCompile Include="Logic\GameProcessScreen.cpp">
+      <Filter>Файлы исходного кода</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Engine\Game.h">
@@ -51,6 +57,12 @@
       <Filter>Заголовочные файлы</Filter>
     </ClInclude>
     <ClInclude Include="Engine\Screen.h">
+      <Filter>Заголовочные файлы</Filter>
+    </ClInclude>
+    <ClInclude Include="Logic\MainMenuScreen.h">
+      <Filter>Заголовочные файлы</Filter>
+    </ClInclude>
+    <ClInclude Include="Logic\GameProcessScreen.h">
       <Filter>Заголовочные файлы</Filter>
     </ClInclude>
   </ItemGroup>

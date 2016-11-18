@@ -3,12 +3,21 @@
 Graphics::Graphics(int width, int height)
 {
 	SDL_Init(SDL_INIT_EVERYTHING);
-	Screen = SDL_CreateRGBSurface(0, width,height,32,0x00FF0000,0x0000FF00,0x000000FF,0xFF000000);
+	window = SDL_CreateWindow("Ural Game Jam 2", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, width, height, 0);
+	renderer = SDL_CreateRenderer(window, -1, 0);
+	SDL_SetRenderDrawColor(renderer, 128, 255, 0, 255);
+
+	//Screen = SDL_CreateRGBSurface(0, width,height,32,0x00FF0000,0x0000FF00,0x000000FF,0xFF000000);
 }
 
 
 Graphics::~Graphics(void)
 {
+}
+
+SDL_Renderer * Graphics::gatRenderer()
+{
+	return renderer;
 }
 
 Image* Graphics::NewImage(char* file)
@@ -64,8 +73,18 @@ bool Graphics::DrawImage(Image* img, int x, int y, int startX, int startY, int e
 	return true;
 }
 
+SDL_Texture* Graphics::loadTexture(std::string path)
+{
+	SDL_Surface* loadedSurface = SDL_LoadBMP(path.c_str());
+	SDL_Texture* newTexture = SDL_CreateTextureFromSurface(renderer, loadedSurface);
+	SDL_FreeSurface(loadedSurface);
+
+	return newTexture;
+}
+
 void Graphics::Flip()
 {
 	//SDL_Flip(Screen);
-	SDL_FillRect(Screen,NULL, 0x000000);
+	//SDL_FillRect(Screen,NULL, 0x000000);
+	SDL_RenderPresent(renderer);
 }

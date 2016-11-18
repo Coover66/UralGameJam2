@@ -3,8 +3,8 @@
 
 Game::Game(void)
 {
-	//run = true;
-	run = false;
+	run = true;
+	//run = false;
 }
 
 
@@ -22,10 +22,7 @@ int Game::Execute(Screen* startscreen, int width, int height)
 	this->screen->Start();
 
 	while(run)
-	{
-		input->Update();
 		screen->Update();
-	}
 
 	screen->Destroy();
 

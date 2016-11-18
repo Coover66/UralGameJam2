@@ -1,9 +1,10 @@
 #pragma once
 #include "Project.h"
+#include <Windows.h>
 
 class Input
 {
-private:
+public:
 	SDL_Event evt;
 
 public:
@@ -14,7 +15,7 @@ public:
 	
 	bool IsMouseButtonDown(Uint8 key);
 	bool IsMouseButtonUp(Uint8 key);
-	//POINT GetButtonDownCoords();
+	POINT GetButtonDownCoords();
 
 	bool IsKeyDown(Uint8 key);
 	bool IsKeyUp(Uint8 key);

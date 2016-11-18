@@ -1,5 +1,5 @@
 #include "Input.h"
-
+#include <Windows.h>
 
 Input::Input(void)
 {
@@ -30,7 +30,7 @@ bool Input::IsMouseButtonUp(Uint8 key)
 			return true;
 	return false;
 }
-/*
+
 POINT Input::GetButtonDownCoords()
 {
 	POINT point;
@@ -39,7 +39,7 @@ POINT Input::GetButtonDownCoords()
 
 	return point;
 }
-*/
+
 bool Input::IsKeyDown(Uint8 key)
 {
 	return (evt.type == SDL_KEYDOWN && evt.key.keysym.sym == key);
