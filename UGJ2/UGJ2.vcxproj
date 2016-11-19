@@ -81,9 +81,14 @@
     <ClCompile Include="Engine\Input.cpp" />
     <ClCompile Include="Engine\Screen.cpp" />
     <ClCompile Include="Logic\Character.cpp" />
+    <ClCompile Include="Logic\Door.cpp" />
+    <ClCompile Include="Logic\Entity.cpp" />
     <ClCompile Include="Logic\GameProcessScreen.cpp" />
+    <ClCompile Include="Logic\GlassWindow.cpp" />
     <ClCompile Include="Logic\MainMenuScreen.cpp" />
+    <ClCompile Include="Logic\Map.cpp" />
     <ClCompile Include="Logic\NPC.cpp" />
+    <ClCompile Include="Logic\Player.cpp" />
     <ClCompile Include="Logic\Point.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
@@ -94,9 +99,14 @@
     <ClInclude Include="Engine\Input.h" />
     <ClInclude Include="Engine\Screen.h" />
     <ClInclude Include="Logic\Character.h" />
+    <ClInclude Include="Logic\Door.h" />
+    <ClInclude Include="Logic\Entity.h" />
     <ClInclude Include="Logic\GameProcessScreen.h" />
+    <ClInclude Include="Logic\GlassWindow.h" />
     <ClInclude Include="Logic\MainMenuScreen.h" />
+    <ClInclude Include="Logic\Map.h" />
     <ClInclude Include="Logic\NPC.h" />
+    <ClInclude Include="Logic\Player.h" />
     <ClInclude Include="Logic\Point.h" />
     <ClInclude Include="Project.h" />
   </ItemGroup>
@@ -104,6 +114,9 @@
     <Image Include="..\Data\grass.bmp" />
     <Image Include="..\Data\obshaga6.bmp" />
     <Image Include="..\Data\SNOW.BMP" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram1.cd" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

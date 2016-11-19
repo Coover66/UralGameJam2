@@ -9,5 +9,4 @@
 #include "Engine/Image.h"
 #include "Engine/Input.h"
 #include "Engine/Screen.h"
-#include "Logic/Character.h"
 #include "Logic/Point.h"

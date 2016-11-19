@@ -60,6 +60,21 @@
     <ClCompile Include="Logic\NPC.cpp">
       <Filter>Файлы исходного кода\Logic</Filter>
     </ClCompile>
+    <ClCompile Include="Logic\Door.cpp">
+      <Filter>Файлы исходного кода\Logic</Filter>
+    </ClCompile>
+    <ClCompile Include="Logic\Entity.cpp">
+      <Filter>Файлы исходного кода\Logic</Filter>
+    </ClCompile>
+    <ClCompile Include="Logic\GlassWindow.cpp">
+      <Filter>Файлы исходного кода\Logic</Filter>
+    </ClCompile>
+    <ClCompile Include="Logic\Map.cpp">
+      <Filter>Файлы исходного кода\Logic</Filter>
+    </ClCompile>
+    <ClCompile Include="Logic\Player.cpp">
+      <Filter>Файлы исходного кода\Logic</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Engine\Game.h">
@@ -95,6 +110,21 @@
     <ClInclude Include="Logic\NPC.h">
       <Filter>Заголовочные файлы\Logic</Filter>
     </ClInclude>
+    <ClInclude Include="Logic\Door.h">
+      <Filter>Заголовочные файлы\Logic</Filter>
+    </ClInclude>
+    <ClInclude Include="Logic\Entity.h">
+      <Filter>Заголовочные файлы\Logic</Filter>
+    </ClInclude>
+    <ClInclude Include="Logic\GlassWindow.h">
+      <Filter>Заголовочные файлы\Logic</Filter>
+    </ClInclude>
+    <ClInclude Include="Logic\Map.h">
+      <Filter>Заголовочные файлы\Logic</Filter>
+    </ClInclude>
+    <ClInclude Include="Logic\Player.h">
+      <Filter>Заголовочные файлы\Logic</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Image Include="..\Data\grass.bmp">
@@ -106,5 +136,8 @@
     <Image Include="..\Data\SNOW.BMP">
       <Filter>Файлы ресурсов</Filter>
     </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram1.cd" />
   </ItemGroup>
 </Project>

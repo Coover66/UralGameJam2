@@ -1,6 +1,7 @@
 #pragma once
 #include "../Project.h"
 #include "../Engine/Screen.h"
+#include "Character.h"
 
 class GameProcessScreen :
 	public Screen

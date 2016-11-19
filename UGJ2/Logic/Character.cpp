@@ -1,8 +1,6 @@
 #include "Character.h"
 
-
-
-Character::Character(int x, int y, SDL_Texture* _texture, double direction) : position(x, y), texture(_texture)
+Character::Character(int x, int y, SDL_Texture* _texture, double direction) : Entity(x, y, _texture)
 {
 	rect = { 10,10,100,100 };
 }
@@ -32,9 +30,4 @@ void Character::move(int toX, int toY, float deltaTime)
 	{
 		position.y = SCREEN_HEIGHT - rect.h;
 	}
-}
-
-void Character::render(SDL_Renderer* renderer)
-{
-	SDL_RenderCopyEx(renderer, texture, NULL, &rect, -direction, NULL, SDL_FLIP_NONE);//player
 }
