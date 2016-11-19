@@ -1,9 +1,8 @@
 #include "NPC.h"
 
 
-NPC::NPC(int x, int y, VecVecBool & map):position(x, y), pole(map)
-{
-}
+NPC::NPC(int x, int y, VecVecBool & map, SDL_Texture * texture, double direction = 0): Character(x, y, texture, direction) {}
+
 
 std::stack<Point> NPC::findPath(const Point & finish) const
 {
@@ -17,17 +16,21 @@ std::stack<Point> NPC::findPath(const Point & finish) const
 		deque.pop_front();
 		if (currentPoint == finish)
 			break;
-		for (int i = 0; i < 8; ++i)                    // проходим по всем непомеченным соседям
+		for (int i = 0; i < 4; ++i)                    // проходим по всем непомеченным соседям
 		{
 			Point nextPoint(currentPoint.x + Point::dx[i], currentPoint.y + Point::dy[i]);
 			if (!nextPoint.isValid(pole))
 				continue;
 			
 			uint nextLen = poleInt[nextPoint.y][nextPoint.x];
-			uint currentLen = poleInt[currentPoint.y][currentPoint.x];
-			if (nextLen > currentLen + 1 || nextLen == -1)
+			uint currentLen;
+			if (i < 4)
+				currentLen = poleInt[currentPoint.y][currentPoint.x] + 10;
+			else 
+				currentLen = poleInt[currentPoint.y][currentPoint.x] + 14;
+			if (nextLen > currentLen || nextLen == -1)
 			{
-				poleInt[nextPoint.y][nextPoint.x] = currentLen + 1;
+				poleInt[nextPoint.y][nextPoint.x] = currentLen;
 				deque.push_back(nextPoint);
 			}
 		}
