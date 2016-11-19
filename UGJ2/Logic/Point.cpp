@@ -1,4 +1,5 @@
 #include "Point.h"
+#include "Map.h"
 static const int dx_data[8] = { 1, 0, -1, 0, 1, 1, -1, -1 };
 const int * Point::dx = dx_data;
 static const int dy_data[8] = { 0, 1, 0, -1, 1, -1, 1, -1 };
@@ -11,13 +12,13 @@ bool Point::isValid(const VecVecBool & pole) const
 	return  pole[y][x];
 }
 
-Point Point::getBestNeighbor(const VecVecBool & inputPole, const VecVecInt & input) const
+Point Point::getBestNeighbor(const Map & map, const VecVecInt & input) const
 {
 	auto len = input[y][x];
 	for (int i = 0; i < 8; ++i)                    // проходим по всем непомеченным соседям
 	{
 		Point nextPoint(x + dx[i], y + dy[i]);
-		if (!nextPoint.isValid(inputPole))
+		if (!map.isPointValid(nextPoint))
 			continue;
 		int nextLen = input[nextPoint.y][nextPoint.x];
 		if (nextLen != -1 && nextLen < len)

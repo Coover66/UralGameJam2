@@ -2,6 +2,9 @@
 #include "Project.h"
 #include "Logic\MainMenuScreen.h"
 #include "Logic\GameProcessScreen.h"
+#include "Logic\Map.h"
+#include "Logic\NPC.h"
+#include <fstream>
 
 class MyScreen : public Screen
 {
@@ -9,7 +12,6 @@ private:
 	Input* input;
 	Graphics* graphics;
 	SDL_Renderer* renderer;
-
 	SDL_Texture* t1;
 public:
 	void Start()
@@ -34,8 +36,10 @@ public:
 
 int main(int argc, char** argv)
 {
-	/*
-	const int SCREEN_WIDTH = 640;
+	Map map;
+	NPC npc(29, 1, map, (SDL_Texture*)nullptr, 0);
+	npc.findPath(Point(2, 20));
+	/*const int SCREEN_WIDTH = 640;
 	const int SCREEN_HEIGHT = 480;
 	SDL_Window* window = NULL;
 	SDL_Surface* screenSurface = NULL;
@@ -48,6 +52,7 @@ int main(int argc, char** argv)
 	SDL_DestroyWindow( window );	
 	SDL_Quit();
 	*/
+
 	Game game;
 	return game.Execute(new MainMenuScreen(), 640,480);
 }
