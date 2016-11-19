@@ -1,8 +1,10 @@
 #pragma once
 #include <vector>
+#include <fstream>
 #include "Point.h"
 #include "Door.h"
 #include "GlassWindow.h"
+
 enum PointState
 {
 	Free = -1,
@@ -19,12 +21,15 @@ class Map
 public:
 	Map();
 	Map(VecVecPointState & _map);
-	bool isPointValid(Point & p);
-	Point getValidNeighbor(Point & p, uint i); //получить i-го валидного (по которому можно пройти) соседа (начиная с клетки сверху и двигаясь по часовой)
+	bool isPointValid(const Point & p) const;
+	PointState getPoint(const uint x, const uint y) const;
+	size_t getXSize() const;
+	size_t getYSize() const;
+	Point getNeighbor(const Point & p, const uint i) const; //получить i-го соседа
 	virtual ~Map();
 private:
 	VecVecPointState map;
-	const int dx[8] = { 0, 1, 1, 1, 0, -1, -1, -1 };
-	const int dy[8] = { -1, -1, 0, 1, 1, 1, 0, -1 };
+	const int dx[8] = { 0, 0, 1, -1, 1, 1, -1, -1 };
+	const int dy[8] = { 1, -1, 0, 0, -1, 1, 1, -1 };
 };
 
