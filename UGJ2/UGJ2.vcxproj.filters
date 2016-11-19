@@ -54,10 +54,10 @@
     <ClCompile Include="Logic\MainMenuScreen.cpp">
       <Filter>Файлы исходного кода\Logic</Filter>
     </ClCompile>
-    <ClCompile Include="Logic\NPC.cpp">
+    <ClCompile Include="Logic\Point.cpp">
       <Filter>Файлы исходного кода\Logic</Filter>
     </ClCompile>
-    <ClCompile Include="Logic\Point.cpp">
+    <ClCompile Include="Logic\NPC.cpp">
       <Filter>Файлы исходного кода\Logic</Filter>
     </ClCompile>
   </ItemGroup>
@@ -86,14 +86,14 @@
     <ClInclude Include="Logic\MainMenuScreen.h">
       <Filter>Заголовочные файлы\Logic</Filter>
     </ClInclude>
-    <ClInclude Include="Logic\NPC.h">
-      <Filter>Заголовочные файлы\Logic</Filter>
-    </ClInclude>
     <ClInclude Include="Logic\Point.h">
       <Filter>Заголовочные файлы\Logic</Filter>
     </ClInclude>
     <ClInclude Include="Project.h">
       <Filter>Заголовочные файлы</Filter>
+    </ClInclude>
+    <ClInclude Include="Logic\NPC.h">
+      <Filter>Заголовочные файлы\Logic</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -10,5 +10,4 @@
 #include "Engine/Input.h"
 #include "Engine/Screen.h"
 #include "Logic/Character.h"
-#include "Logic/NPC.h"
 #include "Logic/Point.h"

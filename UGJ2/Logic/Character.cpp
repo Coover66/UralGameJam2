@@ -2,12 +2,9 @@
 
 
 
-Character::Character(int x0, int y0, SDL_Texture* texture0, double direction)
+Character::Character(int x, int y, SDL_Texture* _texture, double direction) : position(x, y), texture(_texture)
 {
 	rect = { 10,10,100,100 };
-	x = x0;
-	y = y0;
-	texture = texture0;
 }
 
 
@@ -18,22 +15,22 @@ Character::~Character()
 void Character::move(int toX, int toY, float deltaTime)
 {
 	//TODO: move
-	if (x < 0)
+	if (position.x < 0)
 	{
-		x = 0;
+		position.x = 0;
 	}
-	else if (x > SCREEN_WIDTH - rect.w)
+	else if (position.x > SCREEN_WIDTH - rect.w)
 	{
 		
-		x = SCREEN_WIDTH - rect.w;
+		position.x = SCREEN_WIDTH - rect.w;
 	}
-	if (y < 0)
+	if (position.y < 0)
 	{
-		y = 0;
+		position.y = 0;
 	}
-	else if (y > SCREEN_HEIGHT - rect.h)
+	else if (position.y > SCREEN_HEIGHT - rect.h)
 	{
-		y = SCREEN_HEIGHT - rect.h;
+		position.y = SCREEN_HEIGHT - rect.h;
 	}
 }
 
