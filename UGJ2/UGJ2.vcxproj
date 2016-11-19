@@ -115,9 +115,6 @@
     <Image Include="..\Data\obshaga6.bmp" />
     <Image Include="..\Data\SNOW.BMP" />
   </ItemGroup>
-  <ItemGroup>
-    <None Include="ClassDiagram1.cd" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
