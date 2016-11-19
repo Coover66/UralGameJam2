@@ -3,6 +3,7 @@
 #include <stack>
 #include <deque>
 #include "Character.h"
+#include "Map.h"
 
 class NPC : public Character
 {

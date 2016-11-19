@@ -16,7 +16,7 @@ std::stack<Point> NPC::findPath(const Point & finish) const
 		deque.pop_front();
 		if (currentPoint == finish)
 			break;
-		for (int i = 0; i < 4; ++i)                    // проходим по всем непомеченным соседям
+		for (int i = 0; i < 8; ++i)                    // проходим по всем непомеченным соседям
 		{
 			Point nextPoint(currentPoint.x + Point::dx[i], currentPoint.y + Point::dy[i]);
 			if (!nextPoint.isValid(pole))
