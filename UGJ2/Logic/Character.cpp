@@ -12,7 +12,16 @@ Character::~Character()
 
 void Character::move(int toX, int toY, float deltaTime)
 {
-	//TODO: move
+	int ratio = 1;
+	if (toY != 0 && toY != 0)
+	{
+		ratio = sqrt((double)abs(toX*toX + toY*toY)) / 10 * deltaTime;
+		direction = atan2(toX, toY) / M_PI * 180;
+	}//нет else, т.е. может упасть, если долго не будет изменений
+
+//	position.x += toX / ratio;
+//	position.y += toY / ratio;
+
 	if (position.x < 0)
 	{
 		position.x = 0;

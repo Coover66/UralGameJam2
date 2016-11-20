@@ -75,6 +75,9 @@
     <ClCompile Include="Logic\Player.cpp">
       <Filter>Файлы исходного кода\Logic</Filter>
     </ClCompile>
+    <ClCompile Include="Engine\Timer.cpp">
+      <Filter>Файлы исходного кода\Engine</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Engine\Game.h">
@@ -125,6 +128,12 @@
     <ClInclude Include="Logic\Player.h">
       <Filter>Заголовочные файлы\Logic</Filter>
     </ClInclude>
+    <ClInclude Include="Engine\Timer.h">
+      <Filter>Заголовочные файлы\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="defines.h">
+      <Filter>Заголовочные файлы</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Image Include="..\Data\grass.bmp">
@@ -136,5 +145,8 @@
     <Image Include="..\Data\SNOW.BMP">
       <Filter>Файлы ресурсов</Filter>
     </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram.cd" />
   </ItemGroup>
 </Project>

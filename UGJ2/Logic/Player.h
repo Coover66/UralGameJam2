@@ -4,7 +4,9 @@ class Player :
 	public Character
 {
 public:
-	Player(int x, int y, VecVecBool & map, SDL_Texture* texture, double direction);;
+	Player(int x, int y, SDL_Texture* texture, double direction);;
 	virtual ~Player();
+
+	void movePlayer(int x, int y, int deltaTime);
 };
 
