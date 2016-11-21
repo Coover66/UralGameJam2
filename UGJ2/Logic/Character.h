@@ -7,10 +7,11 @@ class Character:
 {
 protected:
 	int speed;
+	
 public:
-	Character(int x, int y, SDL_Texture* texture, double direction = 0);
+	Character(int x, int y, SDL_Texture* _texture, double _direction = 0);
 	virtual ~Character();
-	void move(int toX, int toY, float deltaTime);
+	void move(float deltaTime, int dir);
 	
 };
 
