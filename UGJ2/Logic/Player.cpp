@@ -9,17 +9,10 @@ Player::~Player()
 {
 }
 
-void Player::movePlayer(int x, int y, int deltaTime)
-{
-	int toX = x - this->rect.x - this->rect.h/2;
-	int toY = y - this->rect.y - this->rect.w / 2;
-	//this->move(toX, toY, deltaTime);
-}
-
 void Player::rotatePlayer(int x, int y)
 {
-	toX = x - this->rect.x - this->rect.h / 2;
-	toY = y - this->rect.y - this->rect.w / 2;
+	toX = x - position.x;
+	toY = y - position.y;
 	direction = atan2(toX, toY) / M_PI * 180;
 }
 

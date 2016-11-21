@@ -14,6 +14,7 @@ Character::~Character()
 
 void Character::move(float deltaTime, int dir)
 {
+	//dir - направление, 1 - вперед, -1 - назад, TODO: исправить (сейчас(21.11.2016 9:00) вызываем только в Player::updateInput)
 	int ratio = 1;
 	if (toX != 0 || toY != 0)
 		if (deltaTime > 0)
