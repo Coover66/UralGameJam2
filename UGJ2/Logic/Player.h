@@ -1,10 +1,16 @@
 #pragma once
+#include "../Project.h"
+//class Input;
 #include "Character.h"
 class Player :
 	public Character
 {
 public:
-	Player(int x, int y, VecVecBool & map, SDL_Texture* texture, double direction);;
+	Player(int x, int y, SDL_Texture* texture, double direction = 0);;
 	virtual ~Player();
+
+	void rotatePlayer(int x, int y);
+	void updateInput(Input* input, int deltaTime);
+
 };
 

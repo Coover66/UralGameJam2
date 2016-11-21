@@ -9,8 +9,9 @@ protected:
 	SDL_Texture* texture;
 	Point position;
 	double direction;
+	int toX, toY;//радиус-вектор направления
 public:
-	Entity(int x, int y, SDL_Texture* _texture);
+	Entity(int x, int y, SDL_Texture* _texture, double direction = 0);
 	virtual ~Entity();
 
 	void render(SDL_Renderer* renderer);
