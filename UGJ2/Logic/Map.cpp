@@ -1,38 +1,40 @@
 #include "Map.h"
 
-Map::Map()
+Map::Map(SDL_Texture* wallTexture, SDL_Texture* windowTexture, SDL_Texture* openDoorTexture, SDL_Texture* closeDoorTexture, SDL_Texture* floorTexture):
+	playerPosition(playerPosition.x, playerPosition.y)
 {
 	std::ifstream file;
 	file.open("..\\Data\\DefaultMap.txt");
-	if (!file.good())
-		return;
-	map.push_back(std::vector<PointState>());
-	char c;	
-	uint i = 0;
-	while (!file.eof())
+	readFromFile(file);
+	for (int i = 0; i < map.size(); ++i)
 	{
-		
-		file >> c;
-		switch (c)
+		entityMap.push_back(std::vector<Entity*>());
+		for (int j = 0; j < map[i].size(); ++i)
 		{
-		case '.': map[i].push_back(PointState::Free); break;
-		case '#': map[i].push_back(PointState::Window); break;
-		case '$': map[i].push_back(PointState::OpenDoor); break;
-		case '|': map[i].push_back(PointState::Wall); break;
-		case 'E': 
-		{
-			map.push_back(std::vector<PointState>());
-			++i;
+			switch (map[i][j])
+			{
+			case PointState::Free: entityMap[i].push_back(new Entity(j * cellHeight, i * cellWidth, floorTexture)); break;
+			case PointState::Wall: entityMap[i].push_back(new Entity(j * cellHeight, i * cellWidth, wallTexture)); break;
+			case PointState::Window: entityMap[i].push_back(new GlassWindow(j * cellHeight, i * cellWidth, floorTexture)); break;
+			case PointState::CloseDoor:
+			case PointState::OpenDoor: entityMap[i].push_back(new Door(j * cellHeight, i * cellWidth, floorTexture)); break;
+			default:
+				break;
+			}
 		}
-		break;
-		default: break;
-		}
-		
 	}
 }
 
-Map::Map(VecVecPointState & _map) : map(_map)
+void Map::update(Point & playerDeltaPosition)
 {
+	int x = SCREEN_WIDTH / 2 
+}
+
+void Map::render(SDL_Renderer * renderer)
+{
+	for each (auto i in entityMap)
+		for each (auto j in i)
+			j->render(renderer);
 }
 
 bool Map::isPointValid(const Point & p) const
@@ -64,7 +66,45 @@ Point Map::getNeighbor(const Point & p, const uint i) const
 	return Point(p.x + dx[i], p.y + dy[i]);
 }
 
-
 Map::~Map()
 {
+	for each (auto i in entityMap)
+		i.~vector();
+	for each (auto i in map)
+		i.~vector();
+}
+
+void Map::readFromFile(std::ifstream & file)
+{
+	if (!file.good())
+		return;
+	map.push_back(std::vector<PointState>());
+	char c;
+	uint i = 0;
+	while (!file.eof())
+	{
+
+		file >> c;
+		switch (c)
+		{
+		case '.': map[i].push_back(PointState::Free); break;
+		case '#': map[i].push_back(PointState::Window); break;
+		case '$': map[i].push_back(PointState::OpenDoor); break;
+		case '|': map[i].push_back(PointState::Wall); break;
+		case 'E':
+		{
+			map.push_back(std::vector<PointState>());
+			++i;
+		}
+		break;
+		case 'P': 
+		{
+			playerPosition.y = i * cellHeight + cellHeight / 2;
+			playerPosition.x = map[i].size() * cellWidth + cellWidth / 2;
+			map[i].push_back(PointState::Free);
+		}
+		break;
+		default: break;
+		}
+	}
 }

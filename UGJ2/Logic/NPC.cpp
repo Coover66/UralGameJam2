@@ -39,11 +39,10 @@ std::stack<Point> NPC::findPath(const Point & finish) const
 		return std::stack<Point>();
 	std::stack<Point> result;
 	Point currentPoint = finish;
-	result.push(currentPoint);
 	while (currentPoint != position)
-	{
-		currentPoint = currentPoint.getBestNeighbor(map, poleInt);
+	{	
 		result.push(currentPoint);
+		currentPoint = currentPoint.getBestNeighbor(map, poleInt);
 	}
 	return result;
 }
