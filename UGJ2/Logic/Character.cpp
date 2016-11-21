@@ -5,6 +5,7 @@ Character::Character(int x, int y, SDL_Texture* _texture, double _direction) : E
 	
 	toX = 0;
 	toY = 0;
+	speed = 4;
 }
 
 
@@ -18,7 +19,7 @@ void Character::move(float deltaTime, int dir)
 	int ratio = 1;
 	if (toX != 0 || toY != 0)
 		if (deltaTime > 0)
-			ratio = sqrt((double)(toX*toX + toY*toY)) / 10 * deltaTime;
+			ratio = sqrt((double)(toX*toX + toY*toY)) / speed * deltaTime;
 			//нет else, т.е. может упасть, если долго не будет изменений
 	if (ratio > 0)
 	{
