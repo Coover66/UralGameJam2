@@ -7,6 +7,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "UGJ2", "UGJ2\UGJ2.vcxproj",
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "testMultiScreens", "testMultiScreens\testMultiScreens.vcxproj", "{033C13FE-BE1B-49E4-B9A4-4776F6527F1E}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "UGJ2_SFML", "UGJ2_SFML\UGJ2_SFML.vcxproj", "{E04DD1A4-1508-44C4-A168-1FF5C8A7C113}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -27,6 +29,14 @@ Global
 		{033C13FE-BE1B-49E4-B9A4-4776F6527F1E}.Release|Win32.ActiveCfg = Release|Win32
 		{033C13FE-BE1B-49E4-B9A4-4776F6527F1E}.Release|Win32.Build.0 = Release|Win32
 		{033C13FE-BE1B-49E4-B9A4-4776F6527F1E}.Release|x64.ActiveCfg = Release|Win32
+		{E04DD1A4-1508-44C4-A168-1FF5C8A7C113}.Debug|Win32.ActiveCfg = Debug|Win32
+		{E04DD1A4-1508-44C4-A168-1FF5C8A7C113}.Debug|Win32.Build.0 = Debug|Win32
+		{E04DD1A4-1508-44C4-A168-1FF5C8A7C113}.Debug|x64.ActiveCfg = Debug|x64
+		{E04DD1A4-1508-44C4-A168-1FF5C8A7C113}.Debug|x64.Build.0 = Debug|x64
+		{E04DD1A4-1508-44C4-A168-1FF5C8A7C113}.Release|Win32.ActiveCfg = Release|Win32
+		{E04DD1A4-1508-44C4-A168-1FF5C8A7C113}.Release|Win32.Build.0 = Release|Win32
+		{E04DD1A4-1508-44C4-A168-1FF5C8A7C113}.Release|x64.ActiveCfg = Release|x64
+		{E04DD1A4-1508-44C4-A168-1FF5C8A7C113}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
