@@ -1,147 +1,147 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="MyScreen" Collapsed="true">
-    <Position X="9" Y="5.75" Width="1.5" />
+    <Position X="0.5" Y="5.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAQAAAAAACAAAAAAAAAAAAAAAAAAABgAAAgAAAAAgAA=</HashCode>
       <FileName>main.cpp</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Game" Collapsed="true">
-    <Position X="15.5" Y="0.75" Width="1.5" />
+    <Position X="9.75" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AQAAAggAAAAAAAQAAAAAAAQAAAiAABgAIEAAAAQAAAA=</HashCode>
       <FileName>Engine\Game.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Graphics" Collapsed="true">
-    <Position X="17.25" Y="0.75" Width="1.5" />
+    <Position X="11.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>ABAIAAAABAAAAAAABAAAAAEACAAAAAAIAgAAAAAAgAE=</HashCode>
       <FileName>Engine\Graphics.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Image" Collapsed="true">
-    <Position X="19" Y="0.75" Width="1.5" />
+    <Position X="13.25" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AQAAAAAAAAAAAAAAAAAAAABAAAAAABIAAAAAAEAAAAA=</HashCode>
       <FileName>Engine\Image.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Input" Collapsed="true">
-    <Position X="15.5" Y="1.75" Width="1.5" />
+    <Position X="9.75" Y="1.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AgQAAAABAAAAAAAAAAQAAAAAEAAQwAAQQAAAQAAAAAA=</HashCode>
       <FileName>Engine\Input.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Screen" Collapsed="true">
-    <Position X="11.25" Y="4.5" Width="1.5" />
+    <Position X="2.75" Y="4.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAQAAAAAACAAAAAABAAAAAAAEABAAAAMAAAAAAAAAAA=</HashCode>
       <FileName>Engine\Screen.h</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Character">
-    <Position X="3.25" Y="3" Width="1.5" />
+  <Class Name="Character" Collapsed="true">
+    <Position X="3.75" Y="1.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAACAAAAAAAAAAAAAAQAAAAAAAAAAKAA=</HashCode>
       <FileName>Logic\Character.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Door" Collapsed="true">
-    <Position X="0.5" Y="0.5" Width="1.5" />
+    <Position X="0.5" Y="1.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAACAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Logic\Door.h</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Entity">
-    <Position X="1.5" Y="3" Width="1.5" />
+  <Class Name="Entity" Collapsed="true">
+    <Position X="3.75" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>EAAAAAAAAAAAIAAAAAAAIAgAACAAAgAAAAAAAAAQAAA=</HashCode>
       <FileName>Logic\Entity.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="GameProcessScreen" Collapsed="true">
-    <Position X="13.5" Y="5.75" Width="1.5" />
+    <Position X="5" Y="5.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAwAAQAAACAAASAAgAAAAAIAABBAABgBoBgFAABAgAA=</HashCode>
       <FileName>Logic\GameProcessScreen.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="GlassWindow" Collapsed="true">
-    <Position X="2.75" Y="0.5" Width="1.5" />
+    <Position X="7.25" Y="1.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>EAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Logic\GlassWindow.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="MainMenuScreen" Collapsed="true">
-    <Position X="11.25" Y="5.75" Width="1.5" />
+    <Position X="2.75" Y="5.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAQAAAAAACAAAAAAAAAAAAAAAADAABgAAEgAAAAAgAA=</HashCode>
       <FileName>Logic\MainMenuScreen.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Map" Collapsed="true">
-    <Position X="17.25" Y="1.75" Width="1.5" />
+    <Position X="11.5" Y="1.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AEAAEAAAABACAAAAAAAIACAAAAAAAAAAAAAIAACABCA=</HashCode>
       <FileName>Logic\Map.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="NPC" Collapsed="true">
-    <Position X="6.25" Y="1" Width="1.5" />
+    <Position X="5" Y="3.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAEAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Logic\NPC.h</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Player">
-    <Position X="5" Y="3" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAACAEAAAAAAAAAAAAAAAAAQAAABA=</HashCode>
-      <FileName>Logic\Player.h</FileName>
-    </TypeIdentifier>
-  </Class>
   <Class Name="Point" Collapsed="true">
-    <Position X="19" Y="1.75" Width="1.5" />
+    <Position X="13.25" Y="1.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAiAAAAAAIAAAAAAAAQAAAAABgAAAABAA=</HashCode>
       <FileName>Logic\Point.h</FileName>
     </TypeIdentifier>
   </Class>
+  <Class Name="Player" Collapsed="true">
+    <Position X="2.75" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAQAQAAABA=</HashCode>
+      <FileName>Logic\Player.h</FileName>
+    </TypeIdentifier>
+  </Class>
   <Typedef Name="VecVecPointState" Collapsed="true">
-    <Position X="15.5" Y="4.75" Width="1.5" />
+    <Position X="9.75" Y="4.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Logic\Map.h</FileName>
     </TypeIdentifier>
   </Typedef>
   <Typedef Name="VecVecInt" Collapsed="true">
-    <Position X="19" Y="4" Width="1.5" />
+    <Position X="13.25" Y="3.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Logic\Point.h</FileName>
     </TypeIdentifier>
   </Typedef>
   <Typedef Name="VecVecBool" Collapsed="true">
-    <Position X="17.25" Y="4" Width="1.5" />
+    <Position X="11.5" Y="3.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Logic\Point.h</FileName>
     </TypeIdentifier>
   </Typedef>
   <Typedef Name="uint" Collapsed="true">
-    <Position X="15.5" Y="4" Width="1.5" />
+    <Position X="9.75" Y="3.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Logic\Point.h</FileName>
     </TypeIdentifier>
   </Typedef>
   <Enum Name="PointState" Collapsed="true">
-    <Position X="15.5" Y="3" Width="1.5" />
+    <Position X="9.75" Y="2.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAACAAAAAAAAAAAABAAAAAAAAAQAAAAACAAAAAI=</HashCode>
       <FileName>Logic\Map.h</FileName>

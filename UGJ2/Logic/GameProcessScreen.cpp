@@ -17,10 +17,13 @@ void GameProcessScreen::Start()
 	renderer = graphics->gatRenderer();
 	t1 = graphics->loadTexture("../Data/grass.bmp");
 	t2 = graphics->loadTexture("../Data/SNOW.BMP");
+	stone = graphics->loadTexture("../Data/stone.BMP");
+
 	SDL_SetTextureBlendMode(t2, SDL_BLENDMODE_ADD);
-	r = { 10,10,100,100 };
 	
-	player = new Player(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2, t2);
+	wall = new Entity(200, 480/2, stone,0,50,200);
+	player = new Player(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2, t2, 0, 100, 100, wall);
+	
 
 	fpsTimer.start();
 }
@@ -41,6 +44,7 @@ void GameProcessScreen::Update()
 
 	SDL_RenderCopy(renderer, t1, NULL, NULL);//background
 	player->render(renderer);
+	wall->render(renderer);
 
 	graphics->Flip();
 
