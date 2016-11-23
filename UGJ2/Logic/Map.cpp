@@ -27,14 +27,29 @@ Map::Map(SDL_Texture* wallTexture, SDL_Texture* windowTexture, SDL_Texture* open
 
 void Map::update(Point & playerDeltaPosition)
 {
-	int x = SCREEN_WIDTH / 2 
+	playerPosition += playerDeltaPosition;
+	leftUpCellOnScreen = Point( ((playerPosition.x - SCREEN_WIDTH / 2) / cellWidth), ((playerPosition.y - SCREEN_HEIGHT / 2) / cellHeight) );
+	rightDownCellOnScreen = Point(((playerPosition.x + SCREEN_WIDTH / 2) / cellWidth), ((playerPosition.y + SCREEN_HEIGHT / 2) / cellHeight));
+	int offsetX = ((playerPosition.x - SCREEN_WIDTH / 2) / cellWidth);
+	int offsetY = ((playerPosition.y - SCREEN_HEIGHT / 2) / cellHeight);
+	auto endY = entityMap.begin() + rightDownCellOnScreen.y;
+	auto endX = endY->begin() + rightDownCellOnScreen.x;
+	int entityNumberX = leftUpCellOnScreen.x;
+	int entityNumberY = leftUpCellOnScreen.y;
+	for (auto i = entityMap.begin() + leftUpCellOnScreen.y; i != endY; ++i, ++entityNumberY)
+		for (auto j = i->begin() + leftUpCellOnScreen.x; j != endX; ++j, ++entityNumberY)
+		{
+
+		}
 }
 
 void Map::render(SDL_Renderer * renderer)
 {
-	for each (auto i in entityMap)
-		for each (auto j in i)
-			j->render(renderer);
+	auto endY = entityMap.begin() + rightDownCellOnScreen.y;
+	auto endX = endY->begin() + rightDownCellOnScreen.x;
+	for (auto i = entityMap.begin() + leftUpCellOnScreen.y; i != endY; ++i)
+		for (auto j = i->begin() + leftUpCellOnScreen.x; j != endX; ++j)
+			(*j)->render(renderer);
 }
 
 bool Map::isPointValid(const Point & p) const

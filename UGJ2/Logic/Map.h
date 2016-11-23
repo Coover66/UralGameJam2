@@ -6,6 +6,7 @@
 #include "GlassWindow.h"
 #include "../Engine/Graphics.h"
 #include "../defines.h"
+#include <string>
 
 enum PointState
 {
@@ -33,13 +34,17 @@ public:
 	Point getNeighbor(const Point & p, const uint i) const; //получить i-го соседа
 	void update(Point & _playerPosition);
 	void render(SDL_Renderer * renderer);
+	const int dx[8] = { 0, 0, 1, -1, 1, 1, -1, -1 }; // смещени€, соответствующие сосед€м €чейки
+	const int dy[8] = { 1, -1, 0, 0, -1, 1, 1, -1 };
 	virtual ~Map();
 private:
 	VecVecPointState map;
 	VecVecEntity entityMap;
 	Point playerPosition;
+	Point leftUpCellOnScreen;
+	Point rightDownCellOnScreen;
+	const int cellInScreenX = SCREEN_WIDTH / cellWidth;
+	const int cellInScreenY = SCREEN_HEIGHT / cellHeight;
 	void readFromFile(std::ifstream & file);
-	const int dx[8] = { 0, 0, 1, -1, 1, 1, -1, -1 };
-	const int dy[8] = { 1, -1, 0, 0, -1, 1, 1, -1 };
 };
 
