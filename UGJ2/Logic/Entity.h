@@ -5,15 +5,16 @@
 class Entity
 {
 protected:
-	SDL_Rect rect;
 	SDL_Texture* texture;
-	Point position;
 	double direction;
-	int toX, toY;//радиус-вектор направления
 public:
-	Entity(int x, int y, SDL_Texture* _texture, double direction = 0);
+	Point position;
+	SDL_Rect rect;//для натягивания текстуры, а также для коллизий (у персонажей свои коллизии)
+
+	Entity(int x, int y, SDL_Texture* _texture, double direction = 0, int _width = 32, int _height = 32);
 	virtual ~Entity();
 
+	bool checkCollision(SDL_Rect a, SDL_Rect b);
 	void render(SDL_Renderer* renderer);
 };
 

@@ -36,9 +36,9 @@ public:
 
 int main(int argc, char** argv)
 {
-	Map map;
-	NPC npc(29, 1, map, (SDL_Texture*)nullptr, 0);
-	npc.findPath(Point(2, 20));
+	//Map map;
+//	NPC npc(29, 1, map, (SDL_Texture*)nullptr, 0);
+	//npc.findPath(Point(2, 20));
 	/*const int SCREEN_WIDTH = 640;
 	const int SCREEN_HEIGHT = 480;
 	SDL_Window* window = NULL;

@@ -11,12 +11,13 @@ private:
 	Input* input;
 	Graphics* graphics;
 	SDL_Renderer* renderer;
-	//Character* player;
+	
 	Player* player;
+	Entity* wall;//for test collision
 	SDL_Texture* t1;
 	SDL_Texture* t2;
-	SDL_Rect r;
-	SDL_Rect* r1;
+	SDL_Texture* stone;
+	
 	double angle = 45;
 	int yDirection = 1;
 	int mX = 0, mY = 0;

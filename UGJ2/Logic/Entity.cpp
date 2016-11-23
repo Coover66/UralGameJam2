@@ -2,16 +2,52 @@
 
 
 
-Entity::Entity(int x, int y, SDL_Texture* _texture, double _direction) : position(x, y), texture(_texture)
+Entity::Entity(int x, int y, SDL_Texture* _texture, double _direction, int _width, int _height) : position(x, y), texture(_texture)
 {
 	direction = _direction;
-	int halfOfSize = 45;
-	rect = { x - halfOfSize, y - halfOfSize, 2*halfOfSize, 2*halfOfSize };
+	rect = { x - (int)_width/2, y - (int)_height/2, _width,  _height };
 }
 
 
 Entity::~Entity()
 {
+}
+
+bool Entity::checkCollision(SDL_Rect a, SDL_Rect b)
+{
+	//The sides of the rectangles
+	int leftA, leftB;
+	int rightA, rightB;
+	int topA, topB;
+	int bottomA, bottomB;
+
+	//Calculate the sides of rect A
+	leftA = a.x;
+	rightA = a.x + a.w;
+	topA = a.y;
+	bottomA = a.y + a.h;
+
+	//Calculate the sides of rect B
+	leftB = b.x;
+	rightB = b.x + b.w;
+	topB = b.y;
+	bottomB = b.y + b.h;
+	
+	//If any of the sides from A are outside of B
+	if (bottomA <= topB)
+		return false;
+
+	if (topA >= bottomB)
+		return false;
+
+	if (rightA <= leftB)
+		return false;
+
+	if (leftA >= rightB)
+		return false;
+
+	//If none of the sides from A are outside B
+	return true;
 }
 
 void Entity::render(SDL_Renderer* renderer)
