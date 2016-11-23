@@ -6,7 +6,7 @@ class Player :
 	public Character
 {
 public:
-	Player(int x, int y, SDL_Texture* texture, double direction = 0);;
+	Player(int x, int y, SDL_Texture* texture, double direction = 0, int _width = 32, int _height = 32, Entity* w = NULL);
 	virtual ~Player();
 
 	void rotatePlayer(int x, int y);

@@ -1,11 +1,17 @@
 #include "Character.h"
 
-Character::Character(int x, int y, SDL_Texture* _texture, double _direction) : Entity(x, y, _texture, _direction)
+Character::Character(int x, int y, SDL_Texture* _texture, 
+					double _direction, int _width, int _height, Entity* _w)
+					: Entity(x, y, _texture, _direction, _width, _height)
 {
-	
 	toX = 0;
 	toY = 0;
 	speed = 4;
+	collisionRect = { x - (int)(_width *0.25), y - (int)(_height *0.25), (int)(_width*0.5), (int)( _height*0.5) };
+	if (_w)
+		w = { _w->rect.x , _w->rect.y, _w->rect.w, _w->rect.h };
+
+		//w.x = _w->rect.x;
 }
 
 
@@ -23,12 +29,17 @@ void Character::move(float deltaTime, int dir)
 			//нет else, т.е. может упасть, если долго не будет изменений
 	if (ratio > 0)
 	{
-		double toXDivRatio = dir*toX / ratio;
-		double toYDivRatio = dir*toY / ratio;
-		position.x += toXDivRatio;
-		position.y += toYDivRatio;
-		rect.x += toXDivRatio;
-		rect.y += toYDivRatio;
+		int toXDivRatio = (int)dir*toX / ratio;
+		int toYDivRatio = (int)dir*toY / ratio;
+		if (!checkCollision(SDL_Rect { collisionRect.x +toXDivRatio, collisionRect.y+toYDivRatio, collisionRect.w, collisionRect.h } , w))
+		{		
+			position.x += toXDivRatio;
+			position.y += toYDivRatio;
+			rect.x += toXDivRatio;
+			rect.y += toYDivRatio;
+			collisionRect.x += toXDivRatio;
+			collisionRect.y += toYDivRatio;
+		}
 	}
 
 }

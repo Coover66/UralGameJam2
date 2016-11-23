@@ -2,7 +2,9 @@
 
 
 
-Player::Player(int x, int y, SDL_Texture* texture, double direction): Character(x, y, texture, direction) {}
+Player::Player(int x, int y, SDL_Texture* texture, 
+				double direction, int _width, int _height, Entity* _w)
+				: Character(x, y, texture, direction, _width, _height, _w) {}
 
 
 Player::~Player()
