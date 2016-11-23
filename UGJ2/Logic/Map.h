@@ -20,8 +20,8 @@ enum PointState
 typedef std::vector< std::vector <PointState> >VecVecPointState;
 typedef std::vector< std::vector <Entity*> >VecVecEntity;
 
-const uint cellWidth = 32;
-const uint cellHeight = 32;
+const int cellWidth = 32;
+const int cellHeight = 32;
 
 class Map
 {
@@ -32,7 +32,7 @@ public:
 	size_t getXSize() const;
 	size_t getYSize() const;
 	Point getNeighbor(const Point & p, const uint i) const; //получить i-го соседа
-	void update(Point & _playerPosition);
+	void update(Point & playerDeltaPosition);
 	void render(SDL_Renderer * renderer);
 	const int dx[8] = { 0, 0, 1, -1, 1, 1, -1, -1 }; // смещени€, соответствующие сосед€м €чейки
 	const int dy[8] = { 1, -1, 0, 0, -1, 1, 1, -1 };

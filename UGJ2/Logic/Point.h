@@ -22,7 +22,7 @@ public:
 	friend Point& operator+=(Point& left, const Point& right);
 	friend bool operator ==(const Point  & l, const Point & r);
 	friend bool operator !=(const Point  & l, const Point & r);
-	friend Point &operator +(const Point  & l, const Point & r);
+	friend Point operator +(const Point  & l, const Point & r);
 };
 
 

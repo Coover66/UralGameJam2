@@ -9,7 +9,7 @@ Map::Map(SDL_Texture* wallTexture, SDL_Texture* windowTexture, SDL_Texture* open
 	for (int i = 0; i < map.size(); ++i)
 	{
 		entityMap.push_back(std::vector<Entity*>());
-		for (int j = 0; j < map[i].size(); ++i)
+		for (int j = 0; j < map[i].size(); ++j)
 		{
 			switch (map[i][j])
 			{
@@ -26,30 +26,49 @@ Map::Map(SDL_Texture* wallTexture, SDL_Texture* windowTexture, SDL_Texture* open
 }
 
 void Map::update(Point & playerDeltaPosition)
-{
+{	
 	playerPosition += playerDeltaPosition;
 	leftUpCellOnScreen = Point( ((playerPosition.x - SCREEN_WIDTH / 2) / cellWidth), ((playerPosition.y - SCREEN_HEIGHT / 2) / cellHeight) );
 	rightDownCellOnScreen = Point(((playerPosition.x + SCREEN_WIDTH / 2) / cellWidth), ((playerPosition.y + SCREEN_HEIGHT / 2) / cellHeight));
-	int offsetX = ((playerPosition.x - SCREEN_WIDTH / 2) / cellWidth);
-	int offsetY = ((playerPosition.y - SCREEN_HEIGHT / 2) / cellHeight);
-	auto endY = entityMap.begin() + rightDownCellOnScreen.y;
-	auto endX = endY->begin() + rightDownCellOnScreen.x;
+	auto endY = entityMap.end();
+	if (rightDownCellOnScreen.y < map.size())
+		endY = entityMap.begin() + rightDownCellOnScreen.y;
 	int entityNumberX = leftUpCellOnScreen.x;
 	int entityNumberY = leftUpCellOnScreen.y;
-	for (auto i = entityMap.begin() + leftUpCellOnScreen.y; i != endY; ++i, ++entityNumberY)
-		for (auto j = i->begin() + leftUpCellOnScreen.x; j != endX; ++j, ++entityNumberY)
-		{
+	if (leftUpCellOnScreen.x < 0)
+		leftUpCellOnScreen.x = 0;
+	if (leftUpCellOnScreen.y < 0)
+		leftUpCellOnScreen.y = 0;
 
+	for (auto i = entityMap.begin() + leftUpCellOnScreen.y; i != endY; ++i, ++entityNumberY)
+	{
+		auto endX = i->end();
+		if (rightDownCellOnScreen.y < i->size())
+			endX = i->begin() + rightDownCellOnScreen.x;
+		for (auto j = i->begin() + leftUpCellOnScreen.x;
+			j != endX;
+			++j, ++entityNumberX)
+		{
+			int posX = entityNumberX * cellWidth + playerDeltaPosition.x;
+			int posY = entityNumberY * cellHeight + playerDeltaPosition.y;
+			if (posX < 0)
+				posX = 0;
+			if (posY < 0)
+				posY = 0;
+			(*j)->moveTo(posX, posY);
 		}
+	}
 }
 
 void Map::render(SDL_Renderer * renderer)
 {
 	auto endY = entityMap.begin() + rightDownCellOnScreen.y;
-	auto endX = endY->begin() + rightDownCellOnScreen.x;
 	for (auto i = entityMap.begin() + leftUpCellOnScreen.y; i != endY; ++i)
+	{
+		auto endX = i->begin() + rightDownCellOnScreen.x;
 		for (auto j = i->begin() + leftUpCellOnScreen.x; j != endX; ++j)
 			(*j)->render(renderer);
+	}
 }
 
 bool Map::isPointValid(const Point & p) const

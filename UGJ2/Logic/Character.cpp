@@ -1,8 +1,8 @@
 #include "Character.h"
 
-Character::Character(int x, int y, SDL_Texture* _texture, 
+Character::Character(int x, int y, SDL_Texture* _texture, Map & _map, 
 					double _direction, int _width, int _height, Entity* _w)
-					: Entity(x, y, _texture, _direction, _width, _height)
+					: Entity(x, y, _texture, _direction, _width, _height), map(_map)
 {
 	toX = 0;
 	toY = 0;
@@ -33,12 +33,10 @@ void Character::move(float deltaTime, int dir)
 		int toYDivRatio = (int)dir*toY / ratio;
 		if (!checkCollision(SDL_Rect { collisionRect.x +toXDivRatio, collisionRect.y+toYDivRatio, collisionRect.w, collisionRect.h } , w))
 		{		
-			position.x += toXDivRatio;
-			position.y += toYDivRatio;
-			rect.x += toXDivRatio;
-			rect.y += toYDivRatio;
+			/*Entity::move(toXDivRatio, toYDivRatio);
 			collisionRect.x += toXDivRatio;
-			collisionRect.y += toYDivRatio;
+			collisionRect.y += toYDivRatio;*/
+			map.update(Point(toXDivRatio, toYDivRatio));
 		}
 	}
 

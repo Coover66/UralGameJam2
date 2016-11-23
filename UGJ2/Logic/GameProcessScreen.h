@@ -3,6 +3,8 @@
 #include "../Engine/Screen.h"
 //#include "Character.h"
 #include "Player.h"
+#include "Map.h"
+#include "NPC.h"
 
 class GameProcessScreen :
 	public Screen
@@ -14,6 +16,7 @@ private:
 	
 	Player* player;
 	Entity* wall;//for test collision
+	Map *map;
 	SDL_Texture* t1;
 	SDL_Texture* t2;
 	SDL_Texture* stone;

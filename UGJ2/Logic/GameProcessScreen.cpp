@@ -22,8 +22,15 @@ void GameProcessScreen::Start()
 	SDL_SetTextureBlendMode(t2, SDL_BLENDMODE_ADD);
 	
 	wall = new Entity(200, 480/2, stone,0,50,200);
-	player = new Player(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2, t2, 0, 100, 100, wall);
 	
+	map = new Map(graphics->loadTexture("../Data/WallTmp.bmp"),
+		graphics->loadTexture("../Data/WindowTmp.bmp"),
+		graphics->loadTexture("../Data/DoorTmp.bmp"),
+		graphics->loadTexture("../Data/DoorTmp.bmp"),
+		graphics->loadTexture("../Data/FloorTmp.bmp"));
+	map->update(Point(-128, 128));
+
+	player = new Player(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2, t2, *map, 0, 100, 100, wall);
 
 	fpsTimer.start();
 }
@@ -45,7 +52,7 @@ void GameProcessScreen::Update()
 	SDL_RenderCopy(renderer, t1, NULL, NULL);//background
 	player->render(renderer);
 	wall->render(renderer);
-
+	map->render(renderer);
 	graphics->Flip();
 
 	countedFrames++;

@@ -37,7 +37,7 @@ bool operator!=(const Point & l, const Point & r)
 	return !(l == r);
 }
 
-Point& operator+(const Point & l, const Point & r)
+Point operator+(const Point & l, const Point & r)
 {
 	return Point(l.x + r.x, l.y + r.y);
 }

@@ -2,7 +2,7 @@
 #include "Map.h"
 
 
-NPC::NPC(int x, int y, Map & _map, SDL_Texture * texture, double direction = 0): Character(x, y, texture, direction), map(_map) {}
+NPC::NPC(int x, int y, SDL_Texture * texture, Map & _map, double direction = 0): Character(x, y, texture, map, direction) {}
 
 
 std::stack<Point> NPC::findPath(const Point & finish) const
