@@ -37,10 +37,11 @@ public:
 	const int dx[8] = { 0, 0, 1, -1, 1, 1, -1, -1 }; // смещени€, соответствующие сосед€м €чейки
 	const int dy[8] = { 1, -1, 0, 0, -1, 1, 1, -1 };
 	virtual ~Map();
+	Point playerPosition;
 private:
 	VecVecPointState map;
 	VecVecEntity entityMap;
-	Point playerPosition;
+	
 	Point leftUpCellOnScreen;
 	Point rightDownCellOnScreen;
 	const int cellInScreenX = SCREEN_WIDTH / cellWidth;

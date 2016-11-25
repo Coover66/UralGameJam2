@@ -21,5 +21,5 @@ int main(int argc, char** argv)
 	*/
 
 	Game game;
-	return game.Execute(new GameProcessScreen(), 640,480);//MainMenuScreen()
+	return game.Execute(new GameProcessScreen(), SCREEN_WIDTH, SCREEN_HEIGHT);//MainMenuScreen()
 }

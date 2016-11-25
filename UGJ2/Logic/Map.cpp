@@ -13,11 +13,11 @@ Map::Map(SDL_Texture* wallTexture, SDL_Texture* windowTexture, SDL_Texture* open
 		{
 			switch (map[i][j])
 			{
-			case PointState::Free: entityMap[i].push_back(new Entity(j * cellHeight, i * cellWidth, floorTexture)); break;
-			case PointState::Wall: entityMap[i].push_back(new Entity(j * cellHeight, i * cellWidth, wallTexture)); break;
-			case PointState::Window: entityMap[i].push_back(new GlassWindow(j * cellHeight, i * cellWidth, floorTexture)); break;
+			case PointState::Free: entityMap[i].push_back(new Entity(j * cellWidth, i * cellHeight, floorTexture)); break;
+			case PointState::Wall: entityMap[i].push_back(new Entity(j * cellWidth, i * cellHeight, wallTexture)); break;
+			case PointState::Window: entityMap[i].push_back(new GlassWindow(j * cellWidth, i * cellHeight, windowTexture)); break;
 			case PointState::CloseDoor:
-			case PointState::OpenDoor: entityMap[i].push_back(new Door(j * cellHeight, i * cellWidth, floorTexture)); break;
+			case PointState::OpenDoor: entityMap[i].push_back(new Door(j * cellWidth, i * cellHeight, openDoorTexture)); break;
 			default:
 				break;
 			}
@@ -28,13 +28,20 @@ Map::Map(SDL_Texture* wallTexture, SDL_Texture* windowTexture, SDL_Texture* open
 void Map::update(Point & playerDeltaPosition)
 {	
 	playerPosition += playerDeltaPosition;
-	leftUpCellOnScreen = Point( ((playerPosition.x - SCREEN_WIDTH / 2) / cellWidth), ((playerPosition.y - SCREEN_HEIGHT / 2) / cellHeight) );
-	rightDownCellOnScreen = Point(((playerPosition.x + SCREEN_WIDTH / 2) / cellWidth), ((playerPosition.y + SCREEN_HEIGHT / 2) / cellHeight));
+	float PPX = (float)playerPosition.x / cellWidth;
+	float PPY = (float)playerPosition.y / cellHeight;
+	leftUpCellOnScreen = Point( ((playerPosition.x - 160 / 2) / cellWidth), ((playerPosition.y  - 161 / 2) / cellHeight) );
+	rightDownCellOnScreen = Point(((playerPosition.x + 160 / 2) / cellWidth) + 1, ((playerPosition.y + 161 / 2) / cellHeight)+ 1);
+	int a = rightDownCellOnScreen.x - leftUpCellOnScreen.x;
+	a = + leftUpCellOnScreen.x + a / 2 - playerPosition.x / cellWidth;
+	int offsetX = (playerPosition.x - leftUpCellOnScreen.x  * cellWidth - 160 / 2 )%cellWidth;
+	if ((playerPosition.x - leftUpCellOnScreen.x - 160 / 2) < 0)
+		offsetX = -offsetX;
+	int offsetY = (playerPosition.y - leftUpCellOnScreen.y * cellHeight- 161 / 2) %cellHeight;
 	auto endY = entityMap.end();
 	if (rightDownCellOnScreen.y < map.size())
 		endY = entityMap.begin() + rightDownCellOnScreen.y;
-	int entityNumberX = leftUpCellOnScreen.x;
-	int entityNumberY = leftUpCellOnScreen.y;
+	int entityNumberY = 0;
 	if (leftUpCellOnScreen.x < 0)
 		leftUpCellOnScreen.x = 0;
 	if (leftUpCellOnScreen.y < 0)
@@ -45,12 +52,11 @@ void Map::update(Point & playerDeltaPosition)
 		auto endX = i->end();
 		if (rightDownCellOnScreen.y < i->size())
 			endX = i->begin() + rightDownCellOnScreen.x;
-		for (auto j = i->begin() + leftUpCellOnScreen.x;
-			j != endX;
-			++j, ++entityNumberX)
+		int entityNumberX = 0;
+		for (auto j = i->begin() + leftUpCellOnScreen.x; j != endX; ++j, ++entityNumberX)
 		{
-			int posX = entityNumberX * cellWidth + playerDeltaPosition.x;
-			int posY = entityNumberY * cellHeight + playerDeltaPosition.y;
+			int posX = entityNumberX * cellWidth - offsetX;
+			int posY = entityNumberY * cellHeight - offsetY;
 			if (posX < 0)
 				posX = 0;
 			if (posY < 0)
@@ -62,13 +68,18 @@ void Map::update(Point & playerDeltaPosition)
 
 void Map::render(SDL_Renderer * renderer)
 {
-	auto endY = entityMap.begin() + rightDownCellOnScreen.y;
+	auto endY = entityMap.end();
+	if (rightDownCellOnScreen.y < map.size())
+		endY = entityMap.begin() + rightDownCellOnScreen.y;
 	for (auto i = entityMap.begin() + leftUpCellOnScreen.y; i != endY; ++i)
 	{
-		auto endX = i->begin() + rightDownCellOnScreen.x;
+		auto endX = i->end();
+		if (rightDownCellOnScreen.y < i->size())
+			endX = i->begin() + rightDownCellOnScreen.x;
 		for (auto j = i->begin() + leftUpCellOnScreen.x; j != endX; ++j)
 			(*j)->render(renderer);
 	}
+	
 }
 
 bool Map::isPointValid(const Point & p) const
@@ -131,10 +142,10 @@ void Map::readFromFile(std::ifstream & file)
 			++i;
 		}
 		break;
-		case 'P': 
+		case 'P':
 		{
-			playerPosition.y = i * cellHeight + cellHeight / 2;
-			playerPosition.x = map[i].size() * cellWidth + cellWidth / 2;
+			playerPosition.y = i * cellHeight + cellWidth / 2;
+			playerPosition.x = map[i].size() * cellWidth + cellHeight / 2;
 			map[i].push_back(PointState::Free);
 		}
 		break;

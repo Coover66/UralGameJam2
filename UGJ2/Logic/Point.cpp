@@ -48,3 +48,12 @@ Point & operator+=(Point & l, const Point & r)
 	l.y += r.y;
 	return l;
 }
+
+Point & operator-=(Point & l, const Point & r)
+{
+	l.x -= r.x;
+	l.y -= r.y;
+	return l;
+}
+
+

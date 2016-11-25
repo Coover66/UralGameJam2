@@ -16,21 +16,17 @@ void GameProcessScreen::Start()
 	graphics = game->GetGraphics();
 	renderer = graphics->gatRenderer();
 	t1 = graphics->loadTexture("../Data/grass.bmp");
-	t2 = graphics->loadTexture("../Data/SNOW.BMP");
-	stone = graphics->loadTexture("../Data/stone.BMP");
-
-	SDL_SetTextureBlendMode(t2, SDL_BLENDMODE_ADD);
-	
-	wall = new Entity(200, 480/2, stone,0,50,200);
-	
+	t2 = graphics->loadTexture("../Data/WindowTmp.bmp");
+	stone = graphics->loadTexture("../Data/stone.BMP");	
+	wall = new Entity(200, 480/2, stone,0,50,200);	
 	map = new Map(graphics->loadTexture("../Data/WallTmp.bmp"),
 		graphics->loadTexture("../Data/WindowTmp.bmp"),
 		graphics->loadTexture("../Data/DoorTmp.bmp"),
 		graphics->loadTexture("../Data/DoorTmp.bmp"),
 		graphics->loadTexture("../Data/FloorTmp.bmp"));
-	map->update(Point(-128, 128));
-
-	player = new Player(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2, t2, *map, 0, 100, 100, wall);
+	map->update(Point(0, 0));
+	realPlayer = new Entity(map->playerPosition.x, map->playerPosition.y, t2);
+	player = new Player(160 / 2, 161 / 2, graphics->loadTexture("../Data/SNOW.BMP"), *map, 0, 32, 32, wall);
 
 	fpsTimer.start();
 }
@@ -50,11 +46,14 @@ void GameProcessScreen::Update()
 	SDL_RenderClear(renderer);
 
 	SDL_RenderCopy(renderer, t1, NULL, NULL);//background
-	player->render(renderer);
+	
 	wall->render(renderer);
 	map->render(renderer);
+	player->render(renderer);
+	realPlayer->moveTo(map->playerPosition.x, map->playerPosition.y);
+	realPlayer->render(renderer);
 	graphics->Flip();
-
+	
 	countedFrames++;
 	int frameTicks = capTimer.getTicks();
 	if (frameTicks < SCREEN_TICKS_PER_FRAME)
