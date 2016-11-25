@@ -25,7 +25,7 @@ void GameProcessScreen::Start()
 		graphics->loadTexture("../Data/DoorTmp.bmp"),
 		graphics->loadTexture("../Data/FloorTmp.bmp"));
 	map->update(Point(0, 0));
-	player = new Player(SCREEN_WIDTH / 2, 161 / 2, graphics->loadTexture("../Data/SNOW.BMP"), *map, 0, 32, 32, wall);
+	player = new Player(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2, graphics->loadTexture("../Data/SNOW.BMP"), *map, 0, 32, 32, wall);
 
 	fpsTimer.start();
 }

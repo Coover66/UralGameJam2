@@ -27,24 +27,27 @@ Map::Map(SDL_Texture* wallTexture, SDL_Texture* windowTexture, SDL_Texture* open
 
 void Map::update(Point & playerDeltaPosition)
 {	
-	playerPosition += playerDeltaPosition;
+	/*if (isPointValid(Point(playerPosition.x + playerDeltaPosition.x, playerPosition.y + playerDeltaPosition.y)) &&
+		isPointValid(Point(playerPosition.x + playerDeltaPosition.x, playerPosition.y + playerDeltaPosition.y)))*/
+		playerPosition += playerDeltaPosition;
 	leftUpCellOnScreen = Point( ((playerPosition.x - SCREEN_WIDTH / 2) / cellWidth), ((playerPosition.y  - SCREEN_HEIGHT / 2) / cellHeight) );
-	rightDownCellOnScreen = Point(((playerPosition.x + SCREEN_WIDTH / 2) / cellWidth) + 1, ((playerPosition.y + SCREEN_HEIGHT / 2) / cellHeight)+ 1);
+	rightDownCellOnScreen = Point(((playerPosition.x + SCREEN_WIDTH / 2) / cellWidth) + 2, ((playerPosition.y + SCREEN_HEIGHT / 2) / cellHeight) + 2);
 	int offsetX = (playerPosition.x - leftUpCellOnScreen.x  * cellWidth - SCREEN_WIDTH / 2 )%cellWidth;
-	int offsetY = (playerPosition.y - leftUpCellOnScreen.y * cellHeight- SCREEN_HEIGHT / 2) %cellHeight;
-	auto endY = entityMap.end();
-	if (rightDownCellOnScreen.y < map.size())
-		endY = entityMap.begin() + rightDownCellOnScreen.y;
-	int entityNumberY = 0;
+	int offsetY = (playerPosition.y - leftUpCellOnScreen.y * cellHeight - SCREEN_HEIGHT / 2) % cellHeight;
+	
 	if (leftUpCellOnScreen.x < 0)
 		leftUpCellOnScreen.x = 0;
 	if (leftUpCellOnScreen.y < 0)
 		leftUpCellOnScreen.y = 0;
 
+	auto endY = entityMap.end();
+	if (rightDownCellOnScreen.y < map.size())
+		endY = entityMap.begin() + rightDownCellOnScreen.y;
+	int entityNumberY = 0;
 	for (auto i = entityMap.begin() + leftUpCellOnScreen.y; i != endY; ++i, ++entityNumberY)
 	{
 		auto endX = i->end();
-		if (rightDownCellOnScreen.y < i->size())
+		if (rightDownCellOnScreen.x < i->size())
 			endX = i->begin() + rightDownCellOnScreen.x;
 		int entityNumberX = 0;
 		for (auto j = i->begin() + leftUpCellOnScreen.x; j != endX; ++j, ++entityNumberX)
@@ -58,6 +61,7 @@ void Map::update(Point & playerDeltaPosition)
 			(*j)->moveTo(posX, posY);
 		}
 	}
+	
 }
 
 void Map::render(SDL_Renderer * renderer)
@@ -70,6 +74,7 @@ void Map::render(SDL_Renderer * renderer)
 		auto endX = i->end();
 		if (rightDownCellOnScreen.y < i->size())
 			endX = i->begin() + rightDownCellOnScreen.x;
+		
 		for (auto j = i->begin() + leftUpCellOnScreen.x; j != endX; ++j)
 			(*j)->render(renderer);
 	}
@@ -120,7 +125,7 @@ void Map::readFromFile(std::ifstream & file)
 	map.push_back(std::vector<PointState>());
 	char c;
 	uint i = 0;
-	while (!file.eof())
+	do 
 	{
 
 		file >> c;
@@ -145,5 +150,8 @@ void Map::readFromFile(std::ifstream & file)
 		break;
 		default: break;
 		}
-	}
+		
+	} while (!file.eof());
+	map.pop_back();
+	map.pop_back();
 }
