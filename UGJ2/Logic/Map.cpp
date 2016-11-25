@@ -27,9 +27,10 @@ Map::Map(SDL_Texture* wallTexture, SDL_Texture* windowTexture, SDL_Texture* open
 
 void Map::update(Point & playerDeltaPosition)
 {	
-	/*if (isPointValid(Point(playerPosition.x + playerDeltaPosition.x, playerPosition.y + playerDeltaPosition.y)) &&
-		isPointValid(Point(playerPosition.x + playerDeltaPosition.x, playerPosition.y + playerDeltaPosition.y)))*/
-		playerPosition += playerDeltaPosition;
+
+	if (!isPointInMap(Point((playerPosition.x + playerDeltaPosition.x) / cellWidth, (playerPosition.y + playerDeltaPosition.y) / cellHeight)))
+		return;
+	playerPosition += playerDeltaPosition;
 	leftUpCellOnScreen = Point( ((playerPosition.x - SCREEN_WIDTH / 2) / cellWidth), ((playerPosition.y  - SCREEN_HEIGHT / 2) / cellHeight) );
 	rightDownCellOnScreen = Point(((playerPosition.x + SCREEN_WIDTH / 2) / cellWidth) + 2, ((playerPosition.y + SCREEN_HEIGHT / 2) / cellHeight) + 2);
 	int offsetX = (playerPosition.x - leftUpCellOnScreen.x  * cellWidth - SCREEN_WIDTH / 2 )%cellWidth;
@@ -86,6 +87,12 @@ bool Map::isPointValid(const Point & p) const
 	if (p.y < 0 || p.y >= map.size())  return false;
 	if (p.x < 0 || p.x >= map[p.y].size()) return false;
 	return  (map[p.y][p.x] == PointState::Free || map[p.y][p.x] == PointState::OpenDoor);
+}
+
+bool Map::isPointInMap(const Point & p) const
+{
+	if (p.y < 0 || p.y >= map.size())  return false;
+	return (p.x >= 0 || p.x < map[p.y].size());
 }
 
 PointState Map::getPoint(const uint x, uint y) const

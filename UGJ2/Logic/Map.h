@@ -28,6 +28,7 @@ class Map
 public:
 	Map(SDL_Texture* wallTexture, SDL_Texture* windowTexture, SDL_Texture* openDoorTexture, SDL_Texture* closeDoorTexture, SDL_Texture* floorTexture);
 	bool isPointValid(const Point & p) const;
+	bool isPointInMap(const Point & p) const;
 	PointState getPoint(const uint x, const uint y) const;
 	size_t getXSize() const;
 	size_t getYSize() const;
@@ -37,11 +38,10 @@ public:
 	const int dx[8] = { 0, 0, 1, -1, 1, 1, -1, -1 }; // смещени€, соответствующие сосед€м €чейки
 	const int dy[8] = { 1, -1, 0, 0, -1, 1, 1, -1 };
 	virtual ~Map();
-	Point playerPosition;
 private:
 	VecVecPointState map;
 	VecVecEntity entityMap;
-	
+	Point playerPosition;
 	Point leftUpCellOnScreen;
 	Point rightDownCellOnScreen;
 	const int cellInScreenX = SCREEN_WIDTH / cellWidth;
