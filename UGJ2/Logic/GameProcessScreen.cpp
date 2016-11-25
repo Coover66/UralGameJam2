@@ -25,8 +25,7 @@ void GameProcessScreen::Start()
 		graphics->loadTexture("../Data/DoorTmp.bmp"),
 		graphics->loadTexture("../Data/FloorTmp.bmp"));
 	map->update(Point(0, 0));
-	realPlayer = new Entity(map->playerPosition.x, map->playerPosition.y, t2);
-	player = new Player(160 / 2, 161 / 2, graphics->loadTexture("../Data/SNOW.BMP"), *map, 0, 32, 32, wall);
+	player = new Player(SCREEN_WIDTH / 2, 161 / 2, graphics->loadTexture("../Data/SNOW.BMP"), *map, 0, 32, 32, wall);
 
 	fpsTimer.start();
 }
@@ -50,8 +49,6 @@ void GameProcessScreen::Update()
 	wall->render(renderer);
 	map->render(renderer);
 	player->render(renderer);
-	realPlayer->moveTo(map->playerPosition.x, map->playerPosition.y);
-	realPlayer->render(renderer);
 	graphics->Flip();
 	
 	countedFrames++;

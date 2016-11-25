@@ -13,7 +13,6 @@ private:
 	Input* input;
 	Graphics* graphics;
 	SDL_Renderer* renderer;
-	Entity* realPlayer;//for mapTest
 	Player* player;
 	Entity* wall;//for test collision
 	Map *map;

@@ -28,16 +28,10 @@ Map::Map(SDL_Texture* wallTexture, SDL_Texture* windowTexture, SDL_Texture* open
 void Map::update(Point & playerDeltaPosition)
 {	
 	playerPosition += playerDeltaPosition;
-	float PPX = (float)playerPosition.x / cellWidth;
-	float PPY = (float)playerPosition.y / cellHeight;
-	leftUpCellOnScreen = Point( ((playerPosition.x - 160 / 2) / cellWidth), ((playerPosition.y  - 161 / 2) / cellHeight) );
-	rightDownCellOnScreen = Point(((playerPosition.x + 160 / 2) / cellWidth) + 1, ((playerPosition.y + 161 / 2) / cellHeight)+ 1);
-	int a = rightDownCellOnScreen.x - leftUpCellOnScreen.x;
-	a = + leftUpCellOnScreen.x + a / 2 - playerPosition.x / cellWidth;
-	int offsetX = (playerPosition.x - leftUpCellOnScreen.x  * cellWidth - 160 / 2 )%cellWidth;
-	if ((playerPosition.x - leftUpCellOnScreen.x - 160 / 2) < 0)
-		offsetX = -offsetX;
-	int offsetY = (playerPosition.y - leftUpCellOnScreen.y * cellHeight- 161 / 2) %cellHeight;
+	leftUpCellOnScreen = Point( ((playerPosition.x - SCREEN_WIDTH / 2) / cellWidth), ((playerPosition.y  - SCREEN_HEIGHT / 2) / cellHeight) );
+	rightDownCellOnScreen = Point(((playerPosition.x + SCREEN_WIDTH / 2) / cellWidth) + 1, ((playerPosition.y + SCREEN_HEIGHT / 2) / cellHeight)+ 1);
+	int offsetX = (playerPosition.x - leftUpCellOnScreen.x  * cellWidth - SCREEN_WIDTH / 2 )%cellWidth;
+	int offsetY = (playerPosition.y - leftUpCellOnScreen.y * cellHeight- SCREEN_HEIGHT / 2) %cellHeight;
 	auto endY = entityMap.end();
 	if (rightDownCellOnScreen.y < map.size())
 		endY = entityMap.begin() + rightDownCellOnScreen.y;
