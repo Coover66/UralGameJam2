@@ -29,11 +29,11 @@ Screen* Game::GetScreen()
 	return screen;
 }
 	
-void Game::SetScreen(Screen* screen)
+void Game::SetScreen(Screen* _screen)
 {
 	this->screen->Destroy();
 	delete this->screen;
-	this->screen = screen;
+	this->screen = _screen;
 	this->screen->SetController(this);
 	this->screen->Start();
 }

@@ -2,6 +2,7 @@
 
 #include <SFML/Graphics.hpp>
 #include "../Engine/Screen.h"
+#include "GameProcessScreen.h"
 
 class Menu :
 	public Screen
@@ -11,6 +12,7 @@ private:
 	sf::Clock clock;
 	sf::Texture* tileSet;
 	sf::Sprite* tile;
+
 
 public:
 	Menu();

@@ -91,7 +91,7 @@
       <AdditionalIncludeDirectories>$(SolutionDir)UGJ2_SFML\sfml\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
-      <SubSystem>Windows</SubSystem>
+      <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>$(SolutionDir)UGJ2_SFML\sfml\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>sfml-graphics-d.lib;sfml-window-d.lib;sfml-system-d.lib;sfml-network-d.lib;sfml-audio-d.lib;%(AdditionalDependencies)</AdditionalDependencies>
@@ -107,7 +107,7 @@
       <AdditionalIncludeDirectories>$(SolutionDir)UGJ2_SFML\sfml\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
-      <SubSystem>Windows</SubSystem>
+      <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>$(SolutionDir)UGJ2_SFML\sfml\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>sfml-graphics-d.lib;sfml-window-d.lib;sfml-system-d.lib;sfml-network-d.lib;sfml-audio-d.lib;%(AdditionalDependencies)</AdditionalDependencies>
@@ -125,7 +125,7 @@
       <AdditionalIncludeDirectories>$(SolutionDir)UGJ2_SFML\sfml\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
-      <SubSystem>Windows</SubSystem>
+      <SubSystem>Console</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -145,7 +145,7 @@
       <AdditionalIncludeDirectories>$(SolutionDir)UGJ2_SFML\sfml\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
-      <SubSystem>Windows</SubSystem>
+      <SubSystem>Console</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -159,12 +159,20 @@
   <ItemGroup>
     <ClInclude Include="Engine\Game.h" />
     <ClInclude Include="Engine\Screen.h" />
+    <ClInclude Include="Logic\Character.h" />
+    <ClInclude Include="Logic\Entity.h" />
+    <ClInclude Include="Logic\GameProcessScreen.h" />
     <ClInclude Include="Logic\Menu.h" />
+    <ClInclude Include="Logic\Player.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Engine\Game.cpp" />
     <ClCompile Include="Engine\Screen.cpp" />
+    <ClCompile Include="Logic\Character.cpp" />
+    <ClCompile Include="Logic\Entity.cpp" />
+    <ClCompile Include="Logic\GameProcessScreen.cpp" />
     <ClCompile Include="Logic\Menu.cpp" />
+    <ClCompile Include="Logic\Player.cpp" />
     <ClCompile Include="UGJ2_SFML.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

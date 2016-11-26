@@ -12,31 +12,45 @@ void Menu::Start()
 	tile = new Sprite();
 	tile->setTexture(*tileSet);
 	tile->setTextureRect(IntRect(10, 10, 100, 100));
+
+	clock.restart();
 }
 
 void Menu::Update()
 {
 	while (window->isOpen())
 	{
-		float time = clock.getElapsedTime().asMicroseconds();
+		float time = clock.getElapsedTime().asMilliseconds();
 		clock.restart();
-
-		time = time / 500;  // здесь регулируем скорость игры
-		if (time > 20) time = 20;
-
-		Event event;
-		while (window->pollEvent(event))
-		{
-			if (event.type == Event::Closed)
-				game->Exit();
-		}
-		window->clear(Color(107, 140, 255));
-		window->draw(*tile);
-		window->display();
+		
+			Event event1;
+			while (window->pollEvent(event1))
+			{
+				if (event1.type == Event::Closed)
+				{
+					game->Exit();
+					return;
+				}
+				if (event1.type == Event::KeyPressed)
+				{
+					if (event1.key.code == Keyboard::Escape)
+					{
+						game->Exit();
+						return;
+					}
+					if (event1.key.code == Keyboard::Return)
+					{
+						game->SetScreen(new GameProcessScreen());
+						return;
+					}
+				}
+			}
+			window->clear(Color(107, 140, 255));
+			window->draw(*tile);
+			window->display();
 	}
 }
 
 void Menu::Destroy()
 {
-	window->close();
 }
