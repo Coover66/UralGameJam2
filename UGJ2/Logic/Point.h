@@ -19,10 +19,12 @@ public:
 	Point getBestNeighbor(const Map & map, const VecVecInt & input) const;
 	int x;
 	int y;
-	static const int *dx;   // смещени€, соответствующие сосед€м €чейки
-	static const int *dy;
+	friend Point& operator+=(Point& left, const Point& right);
+	friend Point& operator-=(Point& left, const Point& right);
+	friend bool operator ==(const Point  & l, const Point & r);
+	friend bool operator !=(const Point  & l, const Point & r);
+	friend Point operator +(const Point  & l, const Point & r);
 };
 
-bool operator ==(const Point  & l, const Point & r);
-bool operator !=(const Point  & l, const Point & r);
+
 

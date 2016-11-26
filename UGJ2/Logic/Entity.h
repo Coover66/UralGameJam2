@@ -15,6 +15,8 @@ public:
 	virtual ~Entity();
 
 	bool checkCollision(SDL_Rect a, SDL_Rect b);
+	void move(int dx, int dy);
+	void moveTo(int x, int y); //разместить на позиции
 	void render(SDL_Renderer* renderer);
 };
 

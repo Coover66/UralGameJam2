@@ -50,6 +50,22 @@ bool Entity::checkCollision(SDL_Rect a, SDL_Rect b)
 	return true;
 }
 
+void Entity::move(int dx, int dy)
+{
+	rect.x += dx;
+	rect.y += dy;
+	position.x += dx;
+	position.y += dy;
+}
+
+void Entity::moveTo(int x, int y)
+{
+	rect.x = x;
+	rect.y = y;
+	position.x = x;
+	position.y = y;
+}
+
 void Entity::render(SDL_Renderer* renderer)
 {
 	SDL_RenderCopyEx(renderer, texture, NULL, &rect, -direction, NULL, SDL_FLIP_NONE);

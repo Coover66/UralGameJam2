@@ -2,9 +2,9 @@
 
 
 
-Player::Player(int x, int y, SDL_Texture* texture, 
+Player::Player(int x, int y, SDL_Texture* texture, Map & _map,
 				double direction, int _width, int _height, Entity* _w)
-				: Character(x, y, texture, direction, _width, _height, _w) {}
+				: Character(x, y, texture, _map, direction, _width, _height, _w) {}
 
 
 Player::~Player()
@@ -21,9 +21,9 @@ void Player::rotatePlayer(int x, int y)
 void Player::updateInput(Input* input, int deltaTime)
 {
 	if (input->IsKeyDown('w'))
-		this->move(deltaTime, 1);
+		Character::move(deltaTime, 1);
 	if (input->IsKeyDown('s')) 
-		this->move(deltaTime, -1);
+		Character::move(deltaTime, -1);
 	//if (input->IsKeyDown('a')) {}
 	//if (input->IsKeyDown('d')) {}
 	if (input->evt.type == SDL_MOUSEMOTION)
