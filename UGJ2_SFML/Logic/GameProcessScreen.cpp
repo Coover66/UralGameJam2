@@ -22,38 +22,32 @@ void GameProcessScreen::Start()
 	stone = new Texture();
 	stone->loadFromFile("../Data/stone.BMP");
 
+	wallTexture = new Texture();
+	windowTexture = new Texture();
+	door = new Texture();
+	door1 = new Texture();
+	floor = new Texture();
+
+	wallTexture->loadFromFile("../Data/WallTmp.bmp");
+	windowTexture->loadFromFile("../Data/WindowTmp.bmp");
+	door->loadFromFile("../Data/DoorTmp.bmp");
+	door1->loadFromFile("../Data/DoorTmp.bmp");
+	floor->loadFromFile("../Data/FloorTmp.bmp");
+
 	//SDL_SetTextureBlendMode(t2, SDL_BLENDMODE_ADD);
 	
 	wall = new Entity(200, 480/2, stone,0,50,200);
-	player = new Player(640 / 2, 480 / 2, t2, 0, 100, 100, wall);
+	map = new Map(wallTexture, windowTexture, door, door1, floor);
+
+	player = new Player(640 / 2, 480 / 2, t2, *map, 0, 100, 100, wall);
 	
+	
+	map->update(Point(0, 0));
 	clock.restart();
 }
 
 void GameProcessScreen::Update()
 {
-	/*capTimer.start();
-	float avgFPS = countedFrames / (fpsTimer.getTicks() / 1000.f);
-	float  deltaTime = avgFPS / SCREEN_FPS;
-
-	while (SDL_PollEvent(&input->evt)) {
-		if (input->IsKeyDown(SDLK_ESCAPE) || input->IsExit()) game->Exit();		
-		if (input->IsKeyUp(SDLK_RETURN)){ game->SetScreen(new MainMenuScreen()); return; }
-		player->updateInput(input, deltaTime);	
-	}
-
-	SDL_RenderClear(renderer);
-
-	SDL_RenderCopy(renderer, t1, NULL, NULL);//background
-	player->render(renderer);
-	wall->render(renderer);
-
-	graphics->Flip();
-
-	countedFrames++;
-	int frameTicks = capTimer.getTicks();
-	if (frameTicks < SCREEN_TICKS_PER_FRAME)
-		SDL_Delay(SCREEN_TICKS_PER_FRAME - frameTicks);	*/
 	while (window->isOpen())
 	{
 		float time = clock.getElapsedTime().asMilliseconds();
@@ -83,6 +77,7 @@ void GameProcessScreen::Update()
 			}
 			
 			window->clear(Color(107, 140, 255));
+			map->render(window);
 			player->render(window);
 			window->display();
 			clock.restart();

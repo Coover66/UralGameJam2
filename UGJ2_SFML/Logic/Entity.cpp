@@ -2,7 +2,7 @@
 
 
 
-Entity::Entity(int x, int y, sf::Texture* _texture, double _direction, int _width, int _height) : texture(_texture)//position(x, y), 
+Entity::Entity(int x, int y, sf::Texture* _texture, double _direction, int _width, int _height) : position(x, y), texture(_texture)
 {
 	direction = _direction;
 	rect = { x - (int)_width/2, y - (int)_height/2, _width,  _height };

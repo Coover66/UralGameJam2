@@ -157,22 +157,31 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="defines.h" />
     <ClInclude Include="Engine\Game.h" />
     <ClInclude Include="Engine\Screen.h" />
     <ClInclude Include="Logic\Character.h" />
+    <ClInclude Include="Logic\Door.h" />
     <ClInclude Include="Logic\Entity.h" />
     <ClInclude Include="Logic\GameProcessScreen.h" />
+    <ClInclude Include="Logic\GlassWindow.h" />
+    <ClInclude Include="Logic\Map.h" />
     <ClInclude Include="Logic\Menu.h" />
     <ClInclude Include="Logic\Player.h" />
+    <ClInclude Include="Logic\Point.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Engine\Game.cpp" />
     <ClCompile Include="Engine\Screen.cpp" />
     <ClCompile Include="Logic\Character.cpp" />
+    <ClCompile Include="Logic\Door.cpp" />
     <ClCompile Include="Logic\Entity.cpp" />
     <ClCompile Include="Logic\GameProcessScreen.cpp" />
+    <ClCompile Include="Logic\GlassWindow.cpp" />
+    <ClCompile Include="Logic\Map.cpp" />
     <ClCompile Include="Logic\Menu.cpp" />
     <ClCompile Include="Logic\Player.cpp" />
+    <ClCompile Include="Logic\Point.cpp" />
     <ClCompile Include="UGJ2_SFML.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

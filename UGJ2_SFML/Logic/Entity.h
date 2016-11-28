@@ -1,14 +1,14 @@
 #pragma once
 
 #include <SFML/Graphics.hpp>
-
+#include "Point.h"
 class Entity
 {
 protected:
 	sf::Texture* texture;
 	double direction;
 public:
-	//Point position;
+	Point position;
 	sf::IntRect rect;//для натягивания текстуры, а также для коллизий (у персонажей свои коллизии)
 	sf::Sprite sprite;
 

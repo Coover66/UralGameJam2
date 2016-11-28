@@ -5,6 +5,8 @@
 #include <fstream>
 //#include "Character.h"
 #include "Player.h"
+#include "Map.h"
+#include "Point.h"
 
 class GameProcessScreen :
 	public Screen
@@ -18,6 +20,12 @@ private:
 	sf::Texture* t1;
 	sf::Texture* t2;
 	sf::Texture* stone;
+	sf::Texture* wallTexture;
+	sf::Texture* windowTexture;
+	sf::Texture* door;
+	sf::Texture* door1;
+	sf::Texture* floor;
+	Map* map;
 	
 	double angle = 45;
 	int yDirection = 1;

@@ -2,9 +2,9 @@
 
 
 
-Player::Player(int x, int y, sf::Texture* texture,
+Player::Player(int x, int y, sf::Texture* texture, Map & _map,
 				double direction, int _width, int _height, Entity* _w)
-				: Character(x, y, texture, direction, _width, _height, _w) {}
+				: Character(x, y, texture, _map, direction, _width, _height, _w) {}
 
 
 Player::~Player()
@@ -23,12 +23,18 @@ void Player::updateInput(sf::Event* evt, int deltaTime)
 	if (evt->type == sf::Event::KeyPressed)
 	{
 		if (evt->key.code == sf::Keyboard::W)
-			this->move(deltaTime, 1);
+			map.update(Point(0, -sprite.getTextureRect().height));
+			//sprite.move(sf::Vector2f(0, -sprite.getTextureRect().height));
 		if (evt->key.code == sf::Keyboard::S)
-			this->move(deltaTime, -1);
-		//if (input->IsKeyDown('a')) {}
-		//if (input->IsKeyDown('d')) {}
+			map.update(Point(0, sprite.getTextureRect().height));
+			//sprite.move(sf::Vector2f(0, sprite.getTextureRect().height));
+		if (evt->key.code == sf::Keyboard::A)
+			map.update(Point(-sprite.getTextureRect().width, 0));
+			//sprite.move(sf::Vector2f(-sprite.getTextureRect().width, 0));
+		if (evt->key.code == sf::Keyboard::D)
+			map.update(Point(sprite.getTextureRect().width, 0));
+			//sprite.move(sf::Vector2f(sprite.getTextureRect().width, 0));
 	}
-	if (evt->type == sf::Event::MouseMoved)
-		this->rotatePlayer(evt->mouseMove.x, evt->mouseMove.y);
+	//if (evt->type == sf::Event::MouseMoved)
+	//	this->rotatePlayer(evt->mouseMove.x, evt->mouseMove.y);
 }
